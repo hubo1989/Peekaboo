@@ -397,7 +397,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             "boo.peekaboo.peekaboo", // CLI
             "boo.peekaboo.mac", // GUI
         ]
-        let allowlistedTeams: Set<String> = ["Y5PE65HELJ"]
+        let allowlistedTeams: Set<String> = ["7GT4893YFC"]
 
         self.logger.info("Starting Peekaboo Bridge at \(PeekabooBridgeConstants.peekabooSocketPath, privacy: .public)")
         self.bridgeHost = PeekabooBridgeBootstrap.startHost(

@@ -1,0 +1,1128 @@
+{
+  "sourceLanguage" : "zh-Hans",
+  "strings" : {
+    "" : {
+
+    },
+    "." : {
+
+    },
+    "(1 - 128,000)" : {
+
+    },
+    "{env:OPENROUTER_API_KEY}" : {
+
+    },
+    "%@ %@" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@ API Key" : {
+
+    },
+    "%lld" : {
+
+    },
+    "%lld items" : {
+
+    },
+    "%lld messages" : {
+
+    },
+    "%lld steps" : {
+
+    },
+    "%lld tools" : {
+
+    },
+    "%lld." : {
+
+    },
+    "%lld×%lld" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld×%2$lld"
+          }
+        }
+      }
+    },
+    "•" : {
+
+    },
+    "• Avoid common system shortcuts like ⌘Space or ⌘Tab" : {
+
+    },
+    "• Changes take effect immediately without restart" : {
+
+    },
+    "• Shortcuts must include at least one modifier key (⌘, ⌥, ⌃, or ⇧)" : {
+
+    },
+    "© 2025 Peter Steinberger. MIT License." : {
+
+    },
+    "→" : {
+
+    },
+    "⚡ Automation Expert" : {
+
+    },
+    "👻 General Assistant" : {
+
+    },
+    "🔍 Debugging Helper" : {
+
+    },
+    "🧑‍[sh] Swift Developer" : {
+
+    },
+    "About" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于"
+          }
+        }
+      }
+    },
+    "About Peekaboo" : {
+
+    },
+    "Access to 300+ models" : {
+
+    },
+    "Accessibility" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "辅助功能"
+          }
+        }
+      }
+    },
+    "Add Provider" : {
+
+    },
+    "Additional headers in key:value,key:value format" : {
+
+    },
+    "Advanced Settings" : {
+
+    },
+    "Agent Activity" : {
+
+    },
+    "AI" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI"
+          }
+        }
+      }
+    },
+    "AI Assistant" : {
+
+    },
+    "AI Assistant for Session" : {
+
+    },
+    "AI is typing..." : {
+
+    },
+    "AI Model" : {
+
+    },
+    "Animation Settings" : {
+
+    },
+    "Animation Speed" : {
+
+    },
+    "Animation Speed: %@" : {
+
+    },
+    "Animation Types" : {
+
+    },
+    "Anthropic Configuration" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anthropic 配置"
+          }
+        }
+      }
+    },
+    "API endpoint URL for this provider" : {
+
+    },
+    "API Key" : {
+
+    },
+    "API key configured" : {
+
+    },
+    "Are you sure you want to delete '%@'? This action cannot be undone." : {
+
+    },
+    "Arguments" : {
+
+    },
+    "Arguments:" : {
+
+    },
+    "Ask a follow‑up…" : {
+
+    },
+    "Ask me to do something..." : {
+
+    },
+    "Ask Peekaboo something to get started." : {
+
+    },
+    "Ask Peekaboo…" : {
+
+    },
+    "Assistant Voice" : {
+
+    },
+    "Automation (AppleScript)" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自动化 (AppleScript)"
+          }
+        }
+      }
+    },
+    "Available Peekaboo Tools" : {
+
+    },
+    "Base URL" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "基础 URL"
+          }
+        }
+      }
+    },
+    "Basic Information" : {
+
+    },
+    "Brief description of this provider" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Cancel current task" : {
+
+    },
+    "Cancelled" : {
+
+    },
+    "Capture screenshots and see on-screen context" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "截取屏幕截图并查看屏幕上下文"
+          }
+        }
+      }
+    },
+    "Category" : {
+
+    },
+    "Check for updates automatically" : {
+
+    },
+    "Check for Updates…" : {
+
+    },
+    "Check Permissions" : {
+
+    },
+    "Claude Sonnet 4.5" : {
+
+    },
+    "Clear" : {
+
+    },
+    "Click \"Done\" to save or \"Cancel\" to abort" : {
+
+    },
+    "Click \"Record\" next to any shortcut" : {
+
+    },
+    "Click to inspect" : {
+
+    },
+    "Click to inspect image" : {
+
+    },
+    "Close" : {
+
+    },
+    "Configuration" : {
+
+    },
+    "Configure" : {
+
+    },
+    "Connected" : {
+
+    },
+    "Connecting..." : {
+
+    },
+    "Connection Error" : {
+
+    },
+    "Connection Failed" : {
+
+    },
+    "Connection lost. Messages will be queued." : {
+
+    },
+    "Connection Successful" : {
+
+    },
+    "Continue" : {
+
+    },
+    "Control apps via Apple Events (optional)" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通过 Apple Events 控制应用（可选）"
+          }
+        }
+      }
+    },
+    "Control UI elements, mouse, and keyboard" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "控制 UI 元素、鼠标和键盘"
+          }
+        }
+      }
+    },
+    "Conversation History" : {
+
+    },
+    "Current Session" : {
+
+    },
+    "Custom Instructions (Optional)" : {
+
+    },
+    "Custom instructions for the AI assistant" : {
+
+    },
+    "Custom Provider" : {
+
+    },
+    "Custom Providers" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义提供商"
+          }
+        }
+      }
+    },
+    "Customize global keyboard shortcuts for quick access" : {
+
+    },
+    "Debug" : {
+
+    },
+    "Delete" : {
+
+    },
+    "Delete Provider" : {
+
+    },
+    "Delete session" : {
+
+    },
+    "Delightful animations for all Peekaboo operations" : {
+
+    },
+    "Description" : {
+
+    },
+    "Details" : {
+
+    },
+    "Disconnected" : {
+
+    },
+    "Display name for the model" : {
+
+    },
+    "Done" : {
+
+    },
+    "Duplicate" : {
+
+    },
+    "Easter Eggs" : {
+
+    },
+    "Edit" : {
+
+    },
+    "Edit Custom Provider" : {
+
+    },
+    "Effect Intensity" : {
+
+    },
+    "Enable agent mode" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用智能体模式"
+          }
+        }
+      }
+    },
+    "Enable haptic feedback" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用触觉反馈"
+          }
+        }
+      }
+    },
+    "Enable sound effects" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用音效"
+          }
+        }
+      }
+    },
+    "End Session" : {
+
+    },
+    "Ensure Ollama is running locally" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确保 Ollama 在本地运行"
+          }
+        }
+      }
+    },
+    "Enter API key to override environment variable" : {
+
+    },
+    "Error" : {
+
+    },
+    "Executing tools..." : {
+
+    },
+    "Export..." : {
+
+    },
+    "Features" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "功能"
+          }
+        }
+      }
+    },
+    "Found in environment" : {
+
+    },
+    "Friendly name shown in the UI" : {
+
+    },
+    "General" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通用"
+          }
+        }
+      }
+    },
+    "Generating..." : {
+
+    },
+    "Get your OpenAI API key" : {
+
+    },
+    "Global Shortcuts" : {
+
+    },
+    "gpt-4o, claude-3-opus, etc." : {
+
+    },
+    "GPT-5.1" : {
+
+    },
+    "Grant" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "授权"
+          }
+        }
+      }
+    },
+    "Grant required permissions so Peekaboo can capture and automate reliably." : {
+
+    },
+    "Grant Screen Recording + Accessibility. Automation is optional for some workflows." : {
+
+    },
+    "Grant the required items once; you can revisit this anytime in Settings → Permissions." : {
+
+    },
+    "Granted" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已授权"
+          }
+        }
+      }
+    },
+    "Have a natural conversation with Peekaboo" : {
+
+    },
+    "Headers" : {
+
+    },
+    "Hi! I'm Peekaboo" : {
+
+    },
+    "HiddenWindow" : {
+
+    },
+    "Hide" : {
+
+    },
+    "Hide details" : {
+
+    },
+    "How to record shortcuts:" : {
+
+    },
+    "http://localhost:11434" : {
+
+    },
+    "https://openrouter.ai/api/v1" : {
+
+    },
+    "I can help you automate tasks on your Mac" : {
+
+    },
+    "Image Inspector" : {
+
+    },
+    "Inspector" : {
+
+    },
+    "Instructions" : {
+
+    },
+    "Interrupt" : {
+
+    },
+    "Keep window on top" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保持窗口置顶"
+          }
+        }
+      }
+    },
+    "key:value,key:value" : {
+
+    },
+    "Keyboard Shortcuts" : {
+
+    },
+    "Keyboard Theme" : {
+
+    },
+    "Launch at login" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登录时启动"
+          }
+        }
+      }
+    },
+    "Leave empty to continue using environment variable" : {
+
+    },
+    "Less" : {
+
+    },
+    "Listening..." : {
+
+    },
+    "Max Tokens" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最大 Token 数"
+          }
+        }
+      }
+    },
+    "Menu" : {
+
+    },
+    "Menu bar companion for Peekaboo CLI permissions + automation." : {
+
+    },
+    "Model" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "模型"
+          }
+        }
+      }
+    },
+    "Model ID" : {
+
+    },
+    "Model Name" : {
+
+    },
+    "Model Selection" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "模型选择"
+          }
+        }
+      }
+    },
+    "More" : {
+
+    },
+    "Name" : {
+
+    },
+    "New Session" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新会话"
+          }
+        }
+      }
+    },
+    "No Custom Providers" : {
+
+    },
+    "No Session Selected" : {
+
+    },
+    "No sessions yet" : {
+
+    },
+    "Not Connected" : {
+
+    },
+    "OK" : {
+
+    },
+    "Ollama Configuration" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ollama 配置"
+          }
+        }
+      }
+    },
+    "Open in main window" : {
+
+    },
+    "Open OpenAI Platform" : {
+
+    },
+    "Open Peekaboo" : {
+
+    },
+    "Open Settings" : {
+
+    },
+    "Open Settings → Permissions" : {
+
+    },
+    "OpenAI Configuration" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OpenAI 配置"
+          }
+        }
+      }
+    },
+    "OpenRouter" : {
+
+    },
+    "Optional" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可选"
+          }
+        }
+      }
+    },
+    "Optional: Friendly name shown in the UI" : {
+
+    },
+    "Override" : {
+
+    },
+    "Overriding environment variable %@" : {
+
+    },
+    "Parameters" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "参数"
+          }
+        }
+      }
+    },
+    "Peekaboo" : {
+
+    },
+    "Peekaboo needs microphone access to use voice control. Please enable it in System Settings." : {
+
+    },
+    "Peekaboo Sessions" : {
+
+    },
+    "Performance Metrics" : {
+
+    },
+    "Permissions" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "权限"
+          }
+        }
+      }
+    },
+    "Permissions checklist" : {
+
+    },
+    "Pixel Grid" : {
+
+    },
+    "Popular Providers" : {
+
+    },
+    "Press your desired key combination" : {
+
+    },
+    "Preview %@ animation" : {
+
+    },
+    "Processing..." : {
+
+    },
+    "Provider ID" : {
+
+    },
+    "Provider Type" : {
+
+    },
+    "Quick Templates" : {
+
+    },
+    "Quit Peekaboo" : {
+
+    },
+    "Realtime Settings" : {
+
+    },
+    "Realtime Voice Assistant" : {
+
+    },
+    "Recent" : {
+
+    },
+    "Recognition Mode" : {
+
+    },
+    "Recognition:" : {
+
+    },
+    "Record" : {
+
+    },
+    "Recording Permission Required" : {
+
+    },
+    "Refresh" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新"
+          }
+        }
+      }
+    },
+    "Refresh status" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新状态"
+          }
+        }
+      }
+    },
+    "Result" : {
+
+    },
+    "Result:" : {
+
+    },
+    "Retry" : {
+
+    },
+    "Retry task" : {
+
+    },
+    "Retry the failed task" : {
+
+    },
+    "Save" : {
+
+    },
+    "Screen Recording" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "屏幕录制"
+          }
+        }
+      }
+    },
+    "Search sessions..." : {
+
+    },
+    "Select" : {
+
+    },
+    "Select a session from the sidebar or create a new one" : {
+
+    },
+    "Send to Agent" : {
+
+    },
+    "Session is empty." : {
+
+    },
+    "Session not found" : {
+
+    },
+    "Sessions" : {
+
+    },
+    "Settings" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置"
+          }
+        }
+      }
+    },
+    "Settings…" : {
+
+    },
+    "Shortcuts" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "快捷键"
+          }
+        }
+      }
+    },
+    "Show details" : {
+
+    },
+    "Show in Dock" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 Dock 中显示"
+          }
+        }
+      }
+    },
+    "Show onboarding" : {
+
+    },
+    "Show Performance" : {
+
+    },
+    "Show permissions onboarding" : {
+
+    },
+    "Show sessions" : {
+
+    },
+    "sk-..." : {
+
+    },
+    "Slowest Animations:" : {
+
+    },
+    "Sound Effects" : {
+
+    },
+    "Speak to control your agent" : {
+
+    },
+    "Start Conversation" : {
+
+    },
+    "Stop" : {
+
+    },
+    "Switch to text input" : {
+
+    },
+    "Switch to voice input" : {
+
+    },
+    "System Prompt" : {
+
+    },
+    "Tap to start" : {
+
+    },
+    "Temperature" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "温度"
+          }
+        }
+      }
+    },
+    "Test" : {
+
+    },
+    "Test all animation components" : {
+
+    },
+    "Test Connection" : {
+
+    },
+    "Testing Connection" : {
+
+    },
+    "Testing connection..." : {
+
+    },
+    "The Model ID is sent to the API. Model Name is shown in the UI." : {
+
+    },
+    "The model identifier sent to the API" : {
+
+    },
+    "Thinking" : {
+
+    },
+    "Tips:" : {
+
+    },
+    "Tool Execution Progress" : {
+
+    },
+    "Tools Used in Session" : {
+
+    },
+    "Type" : {
+
+    },
+    "Type your message..." : {
+
+    },
+    "Unique identifier for this provider" : {
+
+    },
+    "Updates unavailable in this build." : {
+
+    },
+    "Use \"Clear\" to remove a shortcut entirely" : {
+
+    },
+    "Use custom model for vision tasks" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "为视觉任务使用自定义模型"
+          }
+        }
+      }
+    },
+    "Use Environment" : {
+
+    },
+    "Use Voice Activity Detection (VAD)" : {
+
+    },
+    "Using key from %@" : {
+
+    },
+    "VAD automatically detects when you start and stop speaking" : {
+
+    },
+    "Verifying your provider configuration..." : {
+
+    },
+    "Version %@" : {
+
+    },
+    "Vision Model" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "视觉模型"
+          }
+        }
+      }
+    },
+    "Vision Model Override" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "视觉模型覆盖"
+          }
+        }
+      }
+    },
+    "Visual Feedback" : {
+
+    },
+    "Visualizer" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可视化器"
+          }
+        }
+      }
+    },
+    "Visualizer Test Suite" : {
+
+    },
+    "Voice" : {
+
+    },
+    "Voice changes will take effect in the next conversation" : {
+
+    },
+    "Voice Control" : {
+
+    },
+    "Voice Detection" : {
+
+    },
+    "Voice Selection" : {
+
+    },
+    "Watch Capture" : {
+
+    },
+    "Welcome to Peekaboo!" : {
+
+    },
+    "Your AI-powered Mac automation assistant" : {
+
+    },
+    "Your API key is stored securely in the macOS Keychain" : {
+
+    },
+    "Your API key or environment variable reference" : {
+
+    }
+  },
+  "version" : "1.0"
+}

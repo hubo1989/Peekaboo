@@ -405,7 +405,13 @@ public final class PeekabooServices {
             .isEmpty
         let hasOllama = false
 
-        if hasOpenAI || hasAnthropic || hasOllama {
+        // Check for custom providers with API keys configured
+        let customProviders = self.configuration.getConfiguration()?.customProviders ?? [:]
+        let hasCustomProvider = customProviders.values.contains { provider in
+            provider.enabled && !provider.options.apiKey.isEmpty
+        }
+
+        if hasOpenAI || hasAnthropic || hasOllama || hasCustomProvider {
             let agentConfig = self.configuration.getConfiguration()
             let providers = self.configuration.getAIProviders()
             let environmentProviders = EnvironmentVariables.value(for: "PEEKABOO_AI_PROVIDERS")
@@ -427,7 +433,7 @@ public final class PeekabooServices {
             defer { agentLock.unlock() }
 
             do {
-                let languageModel = Self.parseModelStringForAgent(determination.model)
+                let languageModel = self.parseModelStringForAgent(determination.model)
                 self.agent = try PeekabooAgentService(
                     services: self,
                     defaultModel: languageModel)
@@ -587,23 +593,63 @@ extension PeekabooServices {
     // MARK: - Private Helper Methods
 
     /// Parse model string to LanguageModel enum
-    private static func parseModelStringForAgent(_ modelString: String) -> LanguageModel {
-        // Parse model string to LanguageModel enum
-        LanguageModel.parse(from: modelString) ?? .openai(.gpt51)
+    private func parseModelStringForAgent(_ modelString: String) -> LanguageModel {
+        // Check if this is a custom provider format "provider/model"
+        let parts = modelString.split(separator: "/")
+        if parts.count == 2 {
+            let providerName = String(parts[0]).lowercased()
+            let modelId = String(parts[1])
+
+            // Check if this is a custom provider (not a built-in one)
+            let builtInProviders = ["openai", "anthropic", "ollama", "google", "gemini", "grok", "xai", "mistral", "groq"]
+            if !builtInProviders.contains(providerName) {
+                // It's a custom provider - get the baseURL and apiKey from configuration
+                if let customProviders = self.configuration.getConfiguration()?.customProviders,
+                   let provider = customProviders[providerName]
+                {
+                    // Register the API key with TachikomaConfiguration for OpenAI-compatible providers
+                    let apiKey = provider.options.apiKey
+                    if !apiKey.isEmpty {
+                        // Set the API key for the "openai_compatible" provider in Tachikoma
+                        TachikomaConfiguration.current.setAPIKey(apiKey, for: "openai_compatible")
+                    }
+                    return .openaiCompatible(modelId: modelId, baseURL: provider.options.baseURL)
+                }
+                // Fallback: treat as OpenAI-compatible with default model
+                return .openai(.custom(modelId))
+            }
+        }
+
+        // Standard model parsing
+        return LanguageModel.parse(from: modelString) ?? .openai(.gpt51)
     }
 
     private func determineDefaultModelWithConflict(_ sources: ModelSources) -> ModelDetermination {
         let components = sources.providers
             .split(separator: ",")
             .map { $0.trimmingCharacters(in: .whitespaces) }
-        let environmentModel = components.first?.split(separator: "/").last.map(String.init)
+
+        // Keep the full provider/model string for custom providers
+        let firstProvider = components.first ?? ""
+        let providerParts = firstProvider.split(separator: "/")
+        let providerName = providerParts.first.map(String.init) ?? ""
+        let environmentModel = providerParts.last.map(String.init)
+
+        // Check if this is a custom provider (not openai, anthropic, ollama, google, gemini)
+        let builtInProviders = ["openai", "anthropic", "ollama", "google", "gemini", "grok", "xai", "mistral", "groq"]
+        let isCustomProvider = !builtInProviders.contains(providerName.lowercased())
 
         let hasConflict = sources.isEnvironmentProvided
             && sources.configuredDefault != nil
             && sources.configuredDefault != environmentModel
 
+        // For custom providers, use the full provider/model string
         let model: String = if !sources.providers.isEmpty {
-            environmentModel ?? "gpt-5.1"
+            if isCustomProvider {
+                firstProvider // Keep full "proxypal/gemini-3-flash-preview"
+            } else {
+                environmentModel ?? "gpt-5.1"
+            }
         } else if let configuredDefault = sources.configuredDefault {
             configuredDefault
         } else if sources.hasAnthropic {

@@ -24,6 +24,8 @@ final class PeekabooSettings {
         didSet {
             self.save()
             self.updateConfigFile()
+            // Refresh agent service when provider changes
+            self.services?.refreshAgentService()
         }
     }
 
@@ -49,6 +51,8 @@ final class PeekabooSettings {
         didSet {
             self.save()
             self.updateConfigFile()
+            // Refresh agent service when model changes
+            self.services?.refreshAgentService()
         }
     }
 
@@ -474,6 +478,9 @@ extension PeekabooSettings {
     }
 
     private func save() {
+        // Don't save during loading to prevent overwriting with partial state
+        guard !self.isLoading else { return }
+
         self.userDefaults.set(self.selectedProvider, forKey: "\(self.keyPrefix)selectedProvider")
         self.userDefaults.set(self.openAIAPIKey, forKey: "\(self.keyPrefix)openAIAPIKey")
         self.userDefaults.set(self.anthropicAPIKey, forKey: "\(self.keyPrefix)anthropicAPIKey")
@@ -533,6 +540,10 @@ extension PeekabooSettings {
     }
 
     private func loadFromPeekabooConfig() {
+        // Set isLoading to prevent triggering saves during config loading
+        self.isLoading = true
+        defer { self.isLoading = false }
+
         // Use ConfigurationManager to load from config.json
         _ = self.configManager.loadConfiguration()
 
@@ -540,31 +551,50 @@ extension PeekabooSettings {
         // Only load from credentials file if they exist there
         // This allows proper environment variable detection in the UI
 
-        // Load provider and model from config
-        let selectedProvider = self.configManager.getSelectedProvider()
-        if !selectedProvider.isEmpty {
-            self.selectedProvider = selectedProvider
+        // Only load from config.json if UserDefaults doesn't have values yet
+        // This ensures UserDefaults (user's explicit choices) take precedence
+        let hasUserDefaultsProvider = self.userDefaults.object(forKey: self.namespaced("selectedProvider")) != nil
+        let hasUserDefaultsModel = self.userDefaults.object(forKey: self.namespaced("selectedModel")) != nil
+
+        // Load provider and model from config only if not already set in UserDefaults
+        if !hasUserDefaultsProvider {
+            let configProvider = self.configManager.getSelectedProvider()
+            if !configProvider.isEmpty {
+                self.selectedProvider = configProvider
+            }
         }
 
-        // Load agent settings from config
-        if let model = configManager.getAgentModel() {
-            self.selectedModel = model
+        if !hasUserDefaultsModel {
+            if let model = configManager.getAgentModel() {
+                self.selectedModel = model
+            }
         }
 
-        let configTemp = self.configManager.getAgentTemperature()
-        if configTemp != 0.7 { // Only update if not default
-            self.temperature = configTemp
+        // Temperature and maxTokens: only load from config if UserDefaults has default values
+        let hasUserDefaultsTemp = self.userDefaults.object(forKey: self.namespaced("temperature")) != nil
+        let hasUserDefaultsTokens = self.userDefaults.object(forKey: self.namespaced("maxTokens")) != nil
+
+        if !hasUserDefaultsTemp {
+            let configTemp = self.configManager.getAgentTemperature()
+            if configTemp != 0.7 {
+                self.temperature = configTemp
+            }
         }
 
-        let configTokens = self.configManager.getAgentMaxTokens()
-        if configTokens != 16384 { // Only update if not default
-            self.maxTokens = configTokens
+        if !hasUserDefaultsTokens {
+            let configTokens = self.configManager.getAgentMaxTokens()
+            if configTokens != 16384 {
+                self.maxTokens = configTokens
+            }
         }
 
-        // Load Ollama base URL
-        let ollamaURL = self.configManager.getOllamaBaseURL()
-        if ollamaURL != "http://localhost:11434" {
-            self.ollamaBaseURL = ollamaURL
+        // Load Ollama base URL only if not set
+        let hasUserDefaultsOllama = self.userDefaults.object(forKey: self.namespaced("ollamaBaseURL")) != nil
+        if !hasUserDefaultsOllama {
+            let ollamaURL = self.configManager.getOllamaBaseURL()
+            if ollamaURL != "http://localhost:11434" {
+                self.ollamaBaseURL = ollamaURL
+            }
         }
     }
 
@@ -622,6 +652,9 @@ extension PeekabooSettings {
     }
 
     private func updateConfigFile() {
+        // Don't update config file during loading
+        guard !self.isLoading else { return }
+
         do {
             try self.configManager.updateConfiguration { config in
                 // Ensure structures exist

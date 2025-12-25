@@ -474,8 +474,32 @@ public final class ScreenCaptureService: ScreenCaptureServiceProtocol {
         await self.permissionEvaluator.hasPermission(logger: self.logger)
     }
 
-    // Helper function for timeout handling
-    @MainActor
+    // MARK: - Internal Scrolling Support
+
+    /// High-performance capture for scrolling engine
+    internal func captureRegionImage(
+        _ rect: CGRect,
+        scale: CaptureScalePreference = .logical1x
+    ) async throws -> CGImage {
+        let content = try await SCShareableContent.current
+        guard let display = content.displays.first(where: { $0.frame.contains(rect) }) else {
+            throw OperationError.captureFailed(reason: "No display contains rect")
+        }
+
+        let filter = SCContentFilter(display: display, excludingWindows: [])
+        let config = SCStreamConfiguration()
+        config.sourceRect = Self.displayLocalSourceRect(globalRect: rect, displayFrame: display.frame)
+
+        // Calculate scale
+        let nativeScale = CGFloat(display.width) / display.frame.width
+        let scaleFactor = scale == .native ? nativeScale : 1.0
+
+        config.width = Int(rect.width * scaleFactor)
+        config.height = Int(rect.height * scaleFactor)
+        config.showsCursor = false
+
+        return try await SCScreenshotManager.captureImage(contentFilter: filter, configuration: config)
+    }
 
     // MARK: - Private Helpers
 

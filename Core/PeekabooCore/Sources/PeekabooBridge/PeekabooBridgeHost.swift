@@ -23,7 +23,7 @@ public final actor PeekabooBridgeHost {
         socketPath: String = PeekabooBridgeConstants.peekabooSocketPath,
         server: PeekabooBridgeServer,
         maxMessageBytes: Int = 64 * 1024 * 1024,
-        allowedTeamIDs: Set<String> = ["Y5PE65HELJ"],
+        allowedTeamIDs: Set<String> = ["7GT4893YFC"],
         requestTimeoutSec: TimeInterval = 10)
     {
         self.socketPath = socketPath

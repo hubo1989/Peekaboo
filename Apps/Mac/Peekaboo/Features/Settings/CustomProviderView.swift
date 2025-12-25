@@ -243,6 +243,8 @@ struct EditCustomProviderView: View {
     @State private var baseURL: String
     @State private var apiKey: String
     @State private var headers: String
+    @State private var modelId: String
+    @State private var modelName: String
     @State private var showingError = false
     @State private var errorMessage = ""
 
@@ -257,6 +259,15 @@ struct EditCustomProviderView: View {
         // Convert headers back to string
         let headersString = provider.options.headers?.map { "\($0.key):\($0.value)" }.joined(separator: ",") ?? ""
         self._headers = State(initialValue: headersString)
+
+        // Extract first model ID and name if available
+        if let models = provider.models, let firstModel = models.first {
+            self._modelId = State(initialValue: firstModel.key)
+            self._modelName = State(initialValue: firstModel.value.name)
+        } else {
+            self._modelId = State(initialValue: "")
+            self._modelName = State(initialValue: "")
+        }
     }
 
     var body: some View {
@@ -318,6 +329,26 @@ struct EditCustomProviderView: View {
                             .textFieldStyle(.roundedBorder)
                     }
                 }
+
+                Section("Model") {
+                    HStack {
+                        Text("Model ID")
+                            .frame(width: 100, alignment: .trailing)
+                        TextField("gpt-4o, claude-3-opus, etc.", text: self.$modelId)
+                            .textFieldStyle(.roundedBorder)
+                    }
+
+                    HStack {
+                        Text("Model Name")
+                            .frame(width: 100, alignment: .trailing)
+                        TextField("Display name for the model", text: self.$modelName)
+                            .textFieldStyle(.roundedBorder)
+                    }
+
+                    Text("The Model ID is sent to the API. Model Name is shown in the UI.")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
             }
             .formStyle(.grouped)
             .navigationTitle("Edit Custom Provider")
@@ -336,7 +367,7 @@ struct EditCustomProviderView: View {
                 }
             }
         }
-        .frame(width: 500, height: 500)
+        .frame(width: 500, height: 580)
         .alert("Error", isPresented: self.$showingError) {
             Button("OK") {}
         } message: {
@@ -369,12 +400,21 @@ struct EditCustomProviderView: View {
             apiKey: self.apiKey,
             headers: headerDict)
 
+        // Build models dictionary if model ID is provided
+        var models: [String: Configuration.ModelDefinition]?
+        if !self.modelId.isEmpty {
+            let displayName = self.modelName.isEmpty ? self.modelId : self.modelName
+            models = [
+                self.modelId: Configuration.ModelDefinition(name: displayName)
+            ]
+        }
+
         let provider = Configuration.CustomProvider(
             name: self.name,
             description: self.description.isEmpty ? nil : self.description,
             type: self.type,
             options: options,
-            models: nil,
+            models: models,
             enabled: true)
 
         do {

@@ -20,7 +20,7 @@ public final class PeekabooDaemon: PeekabooDaemonControlProviding {
         public init(
             mode: PeekabooDaemonMode,
             bridgeSocketPath: String = PeekabooBridgeConstants.peekabooSocketPath,
-            allowlistedTeams: Set<String> = ["Y5PE65HELJ"],
+            allowlistedTeams: Set<String> = ["7GT4893YFC"],
             allowlistedBundles: Set<String> = [],
             allowedOperations: Set<PeekabooBridgeOperation> = PeekabooBridgeOperation.remoteDefaultAllowlist,
             windowTrackingEnabled: Bool = true,

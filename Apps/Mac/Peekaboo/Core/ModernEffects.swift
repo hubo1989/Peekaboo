@@ -80,9 +80,13 @@ enum ModernEffectStyle {
     /// Returns the glass style for macOS 26+
     @available(macOS 26.0, *)
     var glassStyle: NSGlassEffectView.Style {
-        // This will map to appropriate glass styles when available
-        // For now, using placeholder since the enum isn't defined yet
-        NSGlassEffectView.Style(rawValue: 0)!
+        // NSGlassEffectView.Style only has .regular and .clear
+        switch self {
+        case .automatic, .content, .popover, .sidebar, .toolbar, .selection:
+            .regular
+        case .hudWindow:
+            .clear
+        }
     }
 }
 

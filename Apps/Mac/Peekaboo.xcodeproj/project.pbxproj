@@ -6,20 +6,21 @@
 	objectVersion = 77;
 	objects = {
 
-	/* Begin PBXBuildFile section */
-			7814F1902E1C0950000995F8 /* AXorcist in Frameworks */ = {isa = PBXBuildFile; productRef = 7814F18F2E1C0950000995F8 /* AXorcist */; };
-			782555022E1CA0ED00F1D8DF /* AXorcist in Frameworks */ = {isa = PBXBuildFile; productRef = 782555012E1CA0ED00F1D8DF /* AXorcist */; };
-			782555052E1CA10900F1D8DF /* PeekabooCore in Frameworks */ = {isa = PBXBuildFile; productRef = 782555042E1CA10900F1D8DF /* PeekabooCore */; };
-			78B1D0FA2F3A123400C0FFEE /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B1D0F92F3A123400C0FFEE /* AppIntents.framework */; };
-			78E542AD2E4178650006A8EF /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 78E542AC2E4178650006A8EF /* KeyboardShortcuts */; };
-			78F8A0A12F0C0B3D00BEEF00 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 78F8A0A32F0C0B3D00BEEF00 /* Sparkle */; };
-			78EA3D102E3B92AB000ADFA6 /* PeekabooUICore in Frameworks */ = {isa = PBXBuildFile; productRef = 78EA3D0F2E3B92AB000ADFA6 /* PeekabooUICore */; };
-	/* End PBXBuildFile section */
+/* Begin PBXBuildFile section */
+		7814F1902E1C0950000995F8 /* AXorcist in Frameworks */ = {isa = PBXBuildFile; productRef = 7814F18F2E1C0950000995F8 /* AXorcist */; };
+		782555022E1CA0ED00F1D8DF /* AXorcist in Frameworks */ = {isa = PBXBuildFile; productRef = 782555012E1CA0ED00F1D8DF /* AXorcist */; };
+		782555052E1CA10900F1D8DF /* PeekabooCore in Frameworks */ = {isa = PBXBuildFile; productRef = 782555042E1CA10900F1D8DF /* PeekabooCore */; };
+		78B1D0FA2F3A123400C0FFEE /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B1D0F92F3A123400C0FFEE /* AppIntents.framework */; };
+		78E542AD2E4178650006A8EF /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 78E542AC2E4178650006A8EF /* KeyboardShortcuts */; };
+		78EA3D102E3B92AB000ADFA6 /* PeekabooUICore in Frameworks */ = {isa = PBXBuildFile; productRef = 78EA3D0F2E3B92AB000ADFA6 /* PeekabooUICore */; };
+		78F8A0A12F0C0B3D00BEEF00 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 78F8A0A32F0C0B3D00BEEF00 /* Sparkle */; };
+		86E965532EFCFBEC0014B827 /* PeekabooBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 78F4CC982EE0457200ACDAAA /* PeekabooBridge */; };
+/* End PBXBuildFile section */
 
-	/* Begin PBXFileReference section */
-			7814F1062E1BD4C8000995F8 /* Peekaboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Peekaboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-			78B1D0F92F3A123400C0FFEE /* AppIntents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppIntents.framework; path = System/Library/Frameworks/AppIntents.framework; sourceTree = SDKROOT; };
-	/* End PBXFileReference section */
+/* Begin PBXFileReference section */
+		7814F1062E1BD4C8000995F8 /* Peekaboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Peekaboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		78B1D0F92F3A123400C0FFEE /* AppIntents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppIntents.framework; path = System/Library/Frameworks/AppIntents.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7814F1082E1BD4C8000995F8 /* Peekaboo */ = {
@@ -29,22 +30,23 @@
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
-	/* Begin PBXFrameworksBuildPhase section */
-			7814F1032E1BD4C8000995F8 /* Frameworks */ = {
-				isa = PBXFrameworksBuildPhase;
-				buildActionMask = 2147483647;
-				files = (
-					7814F1902E1C0950000995F8 /* AXorcist in Frameworks */,
-					782555022E1CA0ED00F1D8DF /* AXorcist in Frameworks */,
-					78B1D0FA2F3A123400C0FFEE /* AppIntents.framework in Frameworks */,
-					78E542AD2E4178650006A8EF /* KeyboardShortcuts in Frameworks */,
-					78F8A0A12F0C0B3D00BEEF00 /* Sparkle in Frameworks */,
-					782555052E1CA10900F1D8DF /* PeekabooCore in Frameworks */,
-					78EA3D102E3B92AB000ADFA6 /* PeekabooUICore in Frameworks */,
-				);
-				runOnlyForDeploymentPostprocessing = 0;
-			};
-	/* End PBXFrameworksBuildPhase section */
+/* Begin PBXFrameworksBuildPhase section */
+		7814F1032E1BD4C8000995F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86E965532EFCFBEC0014B827 /* PeekabooBridge in Frameworks */,
+				7814F1902E1C0950000995F8 /* AXorcist in Frameworks */,
+				782555022E1CA0ED00F1D8DF /* AXorcist in Frameworks */,
+				78B1D0FA2F3A123400C0FFEE /* AppIntents.framework in Frameworks */,
+				78E542AD2E4178650006A8EF /* KeyboardShortcuts in Frameworks */,
+				78F8A0A12F0C0B3D00BEEF00 /* Sparkle in Frameworks */,
+				782555052E1CA10900F1D8DF /* PeekabooCore in Frameworks */,
+				78EA3D102E3B92AB000ADFA6 /* PeekabooUICore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		7814F0FD2E1BD4C8000995F8 = {
@@ -64,15 +66,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-			78F4CC972EE0457200ACDAAA /* Frameworks */ = {
-				isa = PBXGroup;
-				children = (
-					78B1D0F92F3A123400C0FFEE /* AppIntents.framework */,
-				);
-				name = Frameworks;
-				sourceTree = "<group>";
-			};
-	/* End PBXGroup section */
+		78F4CC972EE0457200ACDAAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78B1D0F92F3A123400C0FFEE /* AppIntents.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
 		7814F1052E1BD4C8000995F8 /* Peekaboo */ = {
@@ -112,7 +114,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2610;
-				LastUpgradeCheck = 2600;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					7814F1052E1BD4C8000995F8 = {
 						CreatedOnToolsVersion = 26.0;
@@ -120,10 +122,11 @@
 				};
 			};
 			buildConfigurationList = 7814F1012E1BD4C8000995F8 /* Build configuration list for PBXProject "Peekaboo" */;
-			developmentRegion = en;
+			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 				Base,
 			);
 			mainGroup = 7814F0FD2E1BD4C8000995F8;
@@ -171,6 +174,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -235,6 +239,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -294,7 +299,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = Y5PE65HELJ;
+				DEVELOPMENT_TEAM = 7GT4893YFC;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -315,7 +320,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 3.0.0-beta2;
+				MARKETING_VERSION = "3.0.0-beta2";
 				PRODUCT_BUNDLE_IDENTIFIER = boo.peekaboo.mac.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -323,8 +328,8 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "ENABLE_SPARKLE $(inherited)";
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_ENABLE_EXPERIMENTAL_FEATURES = StrictConcurrency;
 				SWIFT_ENABLE_UPCOMING_FEATURES = "ExistentialAny NonisolatedNonsendingByDefault";
@@ -343,7 +348,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = Y5PE65HELJ;
+				DEVELOPMENT_TEAM = 7GT4893YFC;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -364,7 +369,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 3.0.0-beta2;
+				MARKETING_VERSION = "3.0.0-beta2";
 				PRODUCT_BUNDLE_IDENTIFIER = boo.peekaboo.mac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -458,11 +463,6 @@
 			package = 78E542AB2E4178650006A8EF /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
 			productName = KeyboardShortcuts;
 		};
-		78F8A0A32F0C0B3D00BEEF00 /* Sparkle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 78F8A0A22F0C0B3D00BEEF00 /* XCRemoteSwiftPackageReference "Sparkle" */;
-			productName = Sparkle;
-		};
 		78EA3D0F2E3B92AB000ADFA6 /* PeekabooUICore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PeekabooUICore;
@@ -471,6 +471,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 782555032E1CA10900F1D8DF /* XCLocalSwiftPackageReference "../../Core/PeekabooCore" */;
 			productName = PeekabooBridge;
+		};
+		78F8A0A32F0C0B3D00BEEF00 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78F8A0A22F0C0B3D00BEEF00 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

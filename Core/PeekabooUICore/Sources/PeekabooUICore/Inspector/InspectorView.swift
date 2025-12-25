@@ -154,8 +154,9 @@ public struct InspectorView: View {
     }
 
     private func startPermissionMonitoring() {
-        // Initial check with prompt
-        self.checkPermissions(prompt: self.configuration.showPermissionAlert)
+        // Initial check - do it synchronously first to avoid UI flash
+        let initialStatus = Self.permissionStatusProvider()
+        self.permissionStatus = initialStatus ? .granted : .denied
 
         // Start periodic checking without prompt
         self.permissionCheckTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in

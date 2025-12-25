@@ -17,6 +17,8 @@ struct AddCustomProviderView: View {
     @State private var baseURL = ""
     @State private var apiKey = ""
     @State private var headers = ""
+    @State private var modelId = ""
+    @State private var modelName = ""
     @State private var testResult: TestResult?
     @State private var isTestingConnection = false
 
@@ -214,6 +216,8 @@ struct AddCustomProviderView: View {
             baseURL: self.$baseURL,
             apiKey: self.$apiKey,
             headers: self.$headers,
+            modelId: self.$modelId,
+            modelName: self.$modelName,
             isAdvancedMode: self.$isAdvancedMode)
     }
 
@@ -323,12 +327,21 @@ struct AddCustomProviderView: View {
             apiKey: self.apiKey,
             headers: headerDict)
 
+        // Build models dictionary if model ID is provided
+        var models: [String: Configuration.ModelDefinition]?
+        if !self.modelId.isEmpty {
+            let displayName = self.modelName.isEmpty ? self.modelId : self.modelName
+            models = [
+                self.modelId: Configuration.ModelDefinition(name: displayName)
+            ]
+        }
+
         let provider = Configuration.CustomProvider(
             name: self.name,
             description: self.description.isEmpty ? nil : self.description,
             type: self.type,
             options: options,
-            models: nil,
+            models: models,
             enabled: true)
 
         do {
@@ -394,6 +407,8 @@ private struct ProviderConfigurationStepView: View {
     @Binding var baseURL: String
     @Binding var apiKey: String
     @Binding var headers: String
+    @Binding var modelId: String
+    @Binding var modelName: String
     @Binding var isAdvancedMode: Bool
 
     var body: some View {
@@ -459,6 +474,28 @@ private struct ProviderConfigurationStepView: View {
                             placeholder: "sk-... or {env:API_KEY}")
                         {
                             Text("Your API key or environment variable reference")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                }
+
+                SectionCard(title: "Model", icon: "cpu") {
+                    VStack(spacing: 16) {
+                        FormField(
+                            title: "Model ID",
+                            binding: self.$modelId,
+                            placeholder: "gpt-4o, claude-3-opus, etc.")
+                        {
+                            Text("The model identifier sent to the API")
+                                .foregroundColor(.secondary)
+                        }
+
+                        FormField(
+                            title: "Model Name",
+                            binding: self.$modelName,
+                            placeholder: "Display name for the model")
+                        {
+                            Text("Optional: Friendly name shown in the UI")
                                 .foregroundColor(.secondary)
                         }
                     }

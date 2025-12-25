@@ -286,14 +286,32 @@ struct DetailedMessageRow: View {
     }
 
     private func retryLastTask() {
-        // Find the session containing this message
-        guard let session = sessionStore.sessions.first(where: { session in
+        // Use current session directly if available
+        let session = self.sessionStore.currentSession ?? self.sessionStore.sessions.first(where: { session in
             session.messages.contains(where: { $0.id == message.id })
-        }) else { return }
+        })
+
+        guard let session else {
+            print("Retry: No session found")
+            return
+        }
 
         // Find the error message index
-        guard let errorIndex = session.messages.firstIndex(where: { $0.id == message.id }),
-              errorIndex > 0 else { return }
+        guard let errorIndex = session.messages.firstIndex(where: { $0.id == message.id }) else {
+            // Fallback: find last user message in the session
+            if let lastUserMessage = session.messages.last(where: { $0.role == .user }) {
+                Task {
+                    do {
+                        try await self.agent.executeTask(lastUserMessage.content)
+                    } catch {
+                        print("Retry failed: \(error)")
+                    }
+                }
+            }
+            return
+        }
+
+        guard errorIndex > 0 else { return }
 
         // Look backwards for the last user message
         for i in stride(from: errorIndex - 1, through: 0, by: -1) {

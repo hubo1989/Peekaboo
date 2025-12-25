@@ -234,6 +234,16 @@ public final class OverlayManager {
     }
 
     private func updateApplicationList() async {
+        // Run the heavy AX operations on a background thread to avoid blocking UI
+        let newApplications = await Task.detached(priority: .userInitiated) { [self] in
+            await self.fetchApplicationsInBackground()
+        }.value
+
+        self.applications = newApplications
+    }
+
+    @MainActor
+    private func fetchApplicationsInBackground() async -> [ApplicationInfo] {
         // Get running applications
         let runningApps = NSWorkspace.shared.runningApplications
             .filter { $0.activationPolicy == .regular && $0.bundleIdentifier != nil }
@@ -254,24 +264,29 @@ public final class OverlayManager {
                 processID: app.processIdentifier,
                 icon: app.icon)
 
-            // Get UI elements for this app
+            // Get UI elements for this app - limit depth to avoid freezing
             if let axApp = Element.application(for: app.processIdentifier) {
-                appInfo.elements = await self.detectElements(in: axApp, appBundleID: bundleID)
+                appInfo.elements = await self.detectElementsLimited(in: axApp, appBundleID: bundleID, maxDepth: 3)
             }
 
             newApplications.append(appInfo)
         }
 
-        self.applications = newApplications
+        return newApplications
     }
 
-    private func detectElements(in app: Element, appBundleID: String) async -> [UIElement] {
+    private func detectElementsLimited(in app: Element, appBundleID: String, maxDepth: Int) async -> [UIElement] {
         var elements: [UIElement] = []
 
         // Get windows
         if let windows = app.windows() {
-            for window in windows {
-                await self.collectElements(from: window, into: &elements, appBundleID: appBundleID)
+            for window in windows.prefix(10) { // Limit to first 10 windows
+                await self.collectElementsLimited(
+                    from: window,
+                    into: &elements,
+                    appBundleID: appBundleID,
+                    currentDepth: 0,
+                    maxDepth: maxDepth)
             }
         }
 
@@ -304,12 +319,20 @@ public final class OverlayManager {
         return elements
     }
 
-    private func collectElements(
+    private func collectElementsLimited(
         from element: Element,
         into elements: inout [UIElement],
         appBundleID: String,
-        parentID: UUID? = nil) async
+        parentID: UUID? = nil,
+        currentDepth: Int,
+        maxDepth: Int) async
     {
+        // Limit recursion depth to avoid infinite loops and performance issues
+        guard currentDepth < maxDepth else { return }
+
+        // Limit total elements to avoid memory issues
+        guard elements.count < 500 else { return }
+
         // Check if we should include this element
         guard self.shouldIncludeElement(element) else { return }
 
@@ -323,14 +346,16 @@ public final class OverlayManager {
 
         elements.append(uiElement)
 
-        // Recurse into children
-        if let children = element.children() {
-            for child in children {
-                await self.collectElements(
+        // Recurse into children with depth limit
+        if let children = element.children(strict: true) { // Use strict mode for faster traversal
+            for child in children.prefix(20) { // Limit children per level
+                await self.collectElementsLimited(
                     from: child,
                     into: &elements,
                     appBundleID: appBundleID,
-                    parentID: uiElement.id)
+                    parentID: uiElement.id,
+                    currentDepth: currentDepth + 1,
+                    maxDepth: maxDepth)
             }
         }
     }
