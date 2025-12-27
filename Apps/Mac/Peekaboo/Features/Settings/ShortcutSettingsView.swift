@@ -26,7 +26,7 @@ struct ShortcutSettingsView: View {
                 }
             }
 
-            Section("Global Shortcuts") {
+            Section("App Shortcuts") {
                 VStack(spacing: 16) {
                     ShortcutRecorderView(
                         title: "Toggle Popover",
@@ -43,6 +43,33 @@ struct ShortcutSettingsView: View {
                     ShortcutRecorderView(
                         title: "Show Inspector",
                         shortcutName: .showInspector)
+                }
+                .padding(.vertical, 8)
+            }
+
+            Section("Screenshot Shortcuts") {
+                VStack(spacing: 16) {
+                    ShortcutRecorderView(
+                        title: "Capture Area",
+                        shortcutName: .captureArea)
+
+                    Divider()
+
+                    ShortcutRecorderView(
+                        title: "Capture Screen",
+                        shortcutName: .captureScreen)
+
+                    Divider()
+
+                    ShortcutRecorderView(
+                        title: "Capture Window",
+                        shortcutName: .captureWindow)
+
+                    Divider()
+
+                    ShortcutRecorderView(
+                        title: "Repeat Last Capture",
+                        shortcutName: .repeatLastCapture)
                 }
                 .padding(.vertical, 8)
             }

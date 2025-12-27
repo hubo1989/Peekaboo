@@ -331,6 +331,24 @@ final class PeekabooSettings {
         }
     }
 
+    // MARK: - Screenshot Features
+
+    var screenshotFeaturesEnabled: Bool = true {
+        didSet { self.save() }
+    }
+
+    var screenshotDefaultSaveLocation: String = "~/Desktop" {
+        didSet { self.save() }
+    }
+
+    var screenshotImageFormat: String = "png" {
+        didSet { self.save() }
+    }
+
+    var screenshotShowAnnotationToolbar: Bool = true {
+        didSet { self.save() }
+    }
+
     // Custom Providers
     @ObservationIgnored
     var customProviders: [String: Configuration.CustomProvider] {
@@ -393,6 +411,7 @@ extension PeekabooSettings {
         self.loadVisualizerSettings()
         self.loadAnimationPreferences()
         self.loadRealtimeVoiceSettings()
+        self.loadScreenshotSettings()
     }
 
     private func loadProviderSettings() {
@@ -477,6 +496,16 @@ extension PeekabooSettings {
         self.realtimeVAD = self.valueOrDefault(key: "realtimeVAD", defaultValue: true)
     }
 
+    private func loadScreenshotSettings() {
+        self.screenshotFeaturesEnabled = self.valueOrDefault(key: "screenshotFeaturesEnabled", defaultValue: true)
+        self.screenshotDefaultSaveLocation = self.userDefaults.string(
+            forKey: self.namespaced("screenshotDefaultSaveLocation")) ?? "~/Desktop"
+        self.screenshotImageFormat = self.userDefaults.string(
+            forKey: self.namespaced("screenshotImageFormat")) ?? "png"
+        self.screenshotShowAnnotationToolbar = self.valueOrDefault(
+            key: "screenshotShowAnnotationToolbar", defaultValue: true)
+    }
+
     private func save() {
         // Don't save during loading to prevent overwriting with partial state
         guard !self.isLoading else { return }
@@ -537,6 +566,12 @@ extension PeekabooSettings {
             self.userDefaults.removeObject(forKey: "\(self.keyPrefix)realtimeInstructions")
         }
         self.userDefaults.set(self.realtimeVAD, forKey: "\(self.keyPrefix)realtimeVAD")
+
+        // Save Screenshot settings
+        self.userDefaults.set(self.screenshotFeaturesEnabled, forKey: "\(self.keyPrefix)screenshotFeaturesEnabled")
+        self.userDefaults.set(self.screenshotDefaultSaveLocation, forKey: "\(self.keyPrefix)screenshotDefaultSaveLocation")
+        self.userDefaults.set(self.screenshotImageFormat, forKey: "\(self.keyPrefix)screenshotImageFormat")
+        self.userDefaults.set(self.screenshotShowAnnotationToolbar, forKey: "\(self.keyPrefix)screenshotShowAnnotationToolbar")
     }
 
     private func loadFromPeekabooConfig() {

@@ -12,10 +12,11 @@ import UniformTypeIdentifiers
 
 /// Window controller for the annotation interface
 @MainActor
-final class AnnotationWindowController {
+final class AnnotationWindowController: NSObject, NSWindowDelegate {
     private let logger = Logger(subsystem: "boo.peekaboo.app", category: "AnnotationWindow")
 
     private var window: NSWindow?
+    private var eventMonitor: Any?
     private weak var coordinator: ScreenshotCoordinator?
     private let image: NSImage
     private let annotationManager = AnnotationManager()
@@ -61,27 +62,31 @@ final class AnnotationWindowController {
         windowSize.height += 60
 
         // Create window
-        let window = NSWindow(
+        let window = AnnotationOverlayWindow(
             contentRect: CGRect(origin: .zero, size: windowSize),
-            styleMask: [.titled, .closable, .resizable, .fullSizeContentView],
+            styleMask: [.titled, .closable, .resizable],
             backing: .buffered,
             defer: false
         )
 
-        window.titlebarAppearsTransparent = true
-        window.titleVisibility = .hidden
+        window.title = "Screenshot"
         window.isMovableByWindowBackground = false
         window.backgroundColor = NSColor.black.withAlphaComponent(0.9)
         window.level = .floating
         window.center()
 
+        window.onCancel = { [weak self] in
+            self?.handleCancel()
+        }
+
         window.contentView = NSHostingView(rootView: contentView)
 
         // Set up keyboard shortcuts
-        NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
+        self.eventMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
             self?.handleKeyDown(event) ?? event
         }
 
+        window.delegate = self
         window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
 
@@ -91,8 +96,43 @@ final class AnnotationWindowController {
     /// Dismiss the annotation window
     func dismiss() {
         self.logger.info("Dismissing annotation window")
+
+        if let monitor = self.eventMonitor {
+            NSEvent.removeMonitor(monitor)
+            self.eventMonitor = nil
+        }
+
+        // Clear delegate to avoid double handling in windowWillClose
+        self.window?.delegate = nil
         self.window?.orderOut(nil)
         self.window = nil
+    }
+
+    // MARK: - NSWindowDelegate
+
+    func windowWillClose(_ notification: Notification) {
+        self.logger.info("Window closing via system mechanism")
+
+        // Ensure we detach as delegate immediately to prevent crashes
+        if let window = notification.object as? NSWindow {
+            window.delegate = nil
+        }
+
+        // If the window is still set, it means this was a user action (not programmatic dismiss)
+        if self.window != nil {
+            self.window = nil
+
+            // Clean up monitor
+            if let monitor = self.eventMonitor {
+                NSEvent.removeMonitor(monitor)
+                self.eventMonitor = nil
+            }
+
+            // Handle coordinator notification asynchronously
+            DispatchQueue.main.async { [weak self] in
+                self?.coordinator?.cancelCapture()
+            }
+        }
     }
 
     // MARK: - Action Handlers
@@ -256,6 +296,14 @@ final class AnnotationWindowController {
 }
 
 // MARK: - Annotation Window View
+
+private class AnnotationOverlayWindow: NSWindow {
+    var onCancel: (() -> Void)?
+
+    override func cancelOperation(_ sender: Any?) {
+        self.onCancel?()
+    }
+}
 
 struct AnnotationWindowView: View {
     let image: NSImage

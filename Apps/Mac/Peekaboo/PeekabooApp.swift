@@ -190,6 +190,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     var visualizerCoordinator: VisualizerCoordinator?
     private var visualizerEventReceiver: VisualizerEventReceiver?
 
+    // Screenshot coordinator
+    var screenshotCoordinator: ScreenshotCoordinator?
+
     func applicationDidFinishLaunching(_: Notification) {
         self.logger.info("Peekaboo launching... (Poltergeist test)")
         NSLog("PeekabooApp: applicationDidFinishLaunching")
@@ -227,6 +230,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if let coordinator = self.visualizerCoordinator {
             coordinator.connectSettings(context.settings)
         }
+
+        // Initialize screenshot coordinator
+        self.screenshotCoordinator = ScreenshotCoordinator(settings: context.settings)
 
         // Setup keyboard shortcuts
         self.setupKeyboardShortcuts()
@@ -389,6 +395,31 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         KeyboardShortcuts.onKeyDown(for: .showInspector) { [weak self] in
             self?.logger.info("Global shortcut triggered: showInspector")
             self?.showInspector()
+        }
+
+        // Screenshot shortcuts
+        KeyboardShortcuts.onKeyDown(for: .captureArea) { [weak self] in
+            self?.logger.info("Global shortcut triggered: captureArea")
+            guard self?.settings?.screenshotFeaturesEnabled == true else { return }
+            self?.screenshotCoordinator?.startAreaCapture()
+        }
+
+        KeyboardShortcuts.onKeyDown(for: .captureScreen) { [weak self] in
+            self?.logger.info("Global shortcut triggered: captureScreen")
+            guard self?.settings?.screenshotFeaturesEnabled == true else { return }
+            self?.screenshotCoordinator?.startScreenCapture()
+        }
+
+        KeyboardShortcuts.onKeyDown(for: .captureWindow) { [weak self] in
+            self?.logger.info("Global shortcut triggered: captureWindow")
+            guard self?.settings?.screenshotFeaturesEnabled == true else { return }
+            self?.screenshotCoordinator?.startWindowCapture()
+        }
+
+        KeyboardShortcuts.onKeyDown(for: .repeatLastCapture) { [weak self] in
+            self?.logger.info("Global shortcut triggered: repeatLastCapture")
+            guard self?.settings?.screenshotFeaturesEnabled == true else { return }
+            self?.screenshotCoordinator?.repeatLastCapture()
         }
     }
 

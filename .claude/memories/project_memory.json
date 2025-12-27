@@ -1,0 +1,50 @@
+{
+  "memories": [],
+  "manual_memories": [],
+  "realtime_memories": [
+    {
+      "type": "message",
+      "content": "截图的清晰度太低了",
+      "added_at": "2025-12-26T17:55:00.227193",
+      "source": "realtime_capture"
+    },
+    {
+      "type": "claude_response",
+      "content": "截图清晰度低的原因已找到并修复。\n\n**原因：**\n在 Retina 屏幕上截图时，只使用了逻辑分辨率（Point）而非物理像素分辨率（Pixel），导致图像被压缩。\n\n**修复：**\n我已更新 `Apps/Mac/Peekaboo/Features/Screenshot/ScreenshotCoordinator.swift` 文件中的 `captureScreen` 方法：\n1. 获取当前屏幕",
+      "added_at": "2025-12-26T18:23:44.885269",
+      "source": "realtime_capture"
+    },
+    {
+      "type": "message",
+      "content": "在图片上拖动时，既能拖动窗口也能画形状，窗口拖动应该仅支持标题栏",
+      "added_at": "2025-12-26T18:23:44.885292",
+      "source": "realtime_capture"
+    },
+    {
+      "type": "message",
+      "content": "在图片上拖动时，既能拖动窗口也能画形状，窗口拖动应该仅支持标题栏.另外程序启动后第一次可以用快捷键截图，关闭后再按快捷键就无反应了",
+      "added_at": "2025-12-27T11:42:33.641276",
+      "source": "realtime_capture"
+    },
+    {
+      "type": "message",
+      "content": "1、截图范围正确，编辑框内清晰度还是很低 2、截图发起后，需要允许点击esc取消 3、截图完成，编辑框点击关闭按钮后卡死",
+      "added_at": "2025-12-27T11:55:29.032723",
+      "source": "realtime_capture"
+    },
+    {
+      "type": "message",
+      "content": "进展如何？",
+      "added_at": "2025-12-27T12:07:42.612826",
+      "source": "realtime_capture"
+    },
+    {
+      "type": "message",
+      "content": "☐ Fix blurry screenshot in annotation view (ensure NSImage uses logical size but full pixel data) ☐ Allow cancelling screenshot with ESC key during selection and annotation ☐ Fix crash when closing an",
+      "added_at": "2025-12-27T12:08:51.163237",
+      "source": "realtime_capture"
+    }
+  ],
+  "created_at": "2025-12-26T17:55:00.226590",
+  "updated_at": "2025-12-27T12:08:51.163271"
+}
