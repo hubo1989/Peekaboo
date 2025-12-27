@@ -12,11 +12,13 @@ struct SelectionOverlayView: View {
     weak var coordinator: ScreenshotCoordinator?
     let screenFrame: CGRect
     let mode: SelectionMode
+    var backgroundImage: NSImage?
 
     @State private var isDragging = false
     @State private var startPoint: CGPoint = .zero
     @State private var currentPoint: CGPoint = .zero
     @State private var mouseLocation: CGPoint = .zero
+    @State private var bitmapRep: NSBitmapImageRep?
 
     private var selectionRect: CGRect {
         guard self.isDragging else { return .zero }
@@ -65,6 +67,17 @@ struct SelectionOverlayView: View {
                     self.mouseLocation = location
                 case .ended:
                     break
+                }
+            }
+            .onAppear {
+                if let image = self.backgroundImage {
+                    // Create bitmap representation for color picking
+                    // We use the CGImage directly to avoid TIFF conversion overhead if possible
+                    if let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil) {
+                        self.bitmapRep = NSBitmapImageRep(cgImage: cgImage)
+                    } else if let tiff = image.tiffRepresentation {
+                        self.bitmapRep = NSBitmapImageRep(data: tiff)
+                    }
                 }
             }
         }
@@ -150,20 +163,64 @@ struct SelectionOverlayView: View {
                 )
 
             // Color value display
-            HStack(spacing: 4) {
-                RoundedRectangle(cornerRadius: 2)
-                    .fill(Color.red) // Placeholder - would show actual pixel color
-                    .frame(width: 16, height: 16)
+            if let color = self.pixelColor {
+                HStack(spacing: 4) {
+                    RoundedRectangle(cornerRadius: 2)
+                        .fill(Color(nsColor: color))
+                        .frame(width: 16, height: 16)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 2)
+                                .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                        )
 
-                Text("#FF5733")
-                    .font(.system(size: 10, weight: .medium, design: .monospaced))
-                    .foregroundColor(.white)
+                    Text(self.hexString(for: color))
+                        .font(.system(size: 10, weight: .medium, design: .monospaced))
+                        .foregroundColor(.white)
+                }
+                .padding(.horizontal, 8)
+                .padding(.vertical, 4)
+                .background(Color.black.opacity(0.8))
+                .cornerRadius(4)
             }
-            .padding(.horizontal, 8)
-            .padding(.vertical, 4)
-            .background(Color.black.opacity(0.8))
-            .cornerRadius(4)
         }
+    }
+
+    private var pixelColor: NSColor? {
+        guard let bitmap = self.bitmapRep else { return nil }
+
+        // Convert screen point to image coordinates
+        // Mouse location is in view coordinates (top-left origin)
+        // Image coordinates depend on the bitmap, usually top-left for CGImage-based reps?
+        // Actually NSBitmapImageRep usually follows the image data.
+        // But we need to account for backing scale factor if the image is retina.
+
+        // Let's assume the image size matches the screenFrame size (in points)
+        // But the bitmap has actual pixels.
+
+        let scaleX = CGFloat(bitmap.pixelsWide) / self.screenFrame.width
+        let scaleY = CGFloat(bitmap.pixelsHigh) / self.screenFrame.height
+
+        let x = Int(self.mouseLocation.x * scaleX)
+        // NSImage/Bitmap usually uses top-left origin for data if created from CGImage?
+        // No, Quartz/CoreGraphics is usually bottom-left, but image data in memory is usually top-left row-major.
+        // NSBitmapImageRep colorAt(x, y) uses standard coordinate system (0,0 is usually top-left for data-based, but bottom-left for drawing).
+        // Let's try top-down first since screen coordinates are top-down.
+        let y = Int(self.mouseLocation.y * scaleY)
+
+        guard x >= 0, x < bitmap.pixelsWide,
+              y >= 0, y < bitmap.pixelsHigh else {
+            return nil
+        }
+
+        return bitmap.colorAt(x: x, y: y)
+    }
+
+    private func hexString(for color: NSColor) -> String {
+        guard let rgbColor = color.usingColorSpace(.sRGB) else { return "#000000" }
+        let r = Int(rgbColor.redComponent * 255)
+        let g = Int(rgbColor.greenComponent * 255)
+        let b = Int(rgbColor.blueComponent * 255)
+        return String(format: "#%02X%02X%02X", r, g, b)
     }
 
     private var magnifierPosition: CGPoint {
@@ -236,7 +293,7 @@ struct SelectionOverlayView: View {
     // MARK: - Gesture
 
     private var dragGesture: some Gesture {
-        DragGesture(minimumDistance: 1)
+        DragGesture(minimumDistance: 0)
             .onChanged { value in
                 if !self.isDragging {
                     self.startPoint = value.startLocation
@@ -273,7 +330,8 @@ struct SelectionOverlayView: View {
     SelectionOverlayView(
         coordinator: nil,
         screenFrame: CGRect(x: 0, y: 0, width: 1920, height: 1080),
-        mode: .area
+        mode: .area,
+        backgroundImage: nil
     )
     .frame(width: 800, height: 600)
     .background(Color.gray)

@@ -110,6 +110,10 @@ final class AnnotationWindowController: NSObject, NSWindowDelegate {
 
     // MARK: - NSWindowDelegate
 
+    func windowShouldClose(_ sender: NSWindow) -> Bool {
+        return true
+    }
+
     func windowWillClose(_ notification: Notification) {
         self.logger.info("Window closing via system mechanism")
 
@@ -205,15 +209,37 @@ final class AnnotationWindowController: NSObject, NSWindowDelegate {
     // MARK: - Image Operations
 
     private func renderFinalImage() -> NSImage {
-        // Create a new image with annotations
-        let size = self.image.size
-        let newImage = NSImage(size: size)
+        // Get the best representation to determine actual pixel dimensions
+        var pixelSize = self.image.size
+        if let rep = self.image.bestRepresentation(for: NSRect(origin: .zero, size: self.image.size), context: nil, hints: nil) {
+            pixelSize = CGSize(width: rep.pixelsWide, height: rep.pixelsHigh)
+        }
+
+        let targetSize = self.image.size
+        let newImage = NSImage(size: targetSize)
+
+        // Create a high-resolution bitmap representation
+        if let rep = NSBitmapImageRep(
+            bitmapDataPlanes: nil,
+            pixelsWide: Int(pixelSize.width),
+            pixelsHigh: Int(pixelSize.height),
+            bitsPerSample: 8,
+            samplesPerPixel: 4,
+            hasAlpha: true,
+            isPlanar: false,
+            colorSpaceName: .deviceRGB,
+            bytesPerRow: 0,
+            bitsPerPixel: 0
+        ) {
+            rep.size = targetSize
+            newImage.addRepresentation(rep)
+        }
 
         newImage.lockFocus()
 
         // Draw original image
         self.image.draw(
-            in: CGRect(origin: .zero, size: size),
+            in: CGRect(origin: .zero, size: targetSize),
             from: .zero,
             operation: .copy,
             fraction: 1.0
@@ -222,7 +248,7 @@ final class AnnotationWindowController: NSObject, NSWindowDelegate {
         // Draw annotations
         if let context = NSGraphicsContext.current?.cgContext {
             // Flip for proper coordinate system
-            context.translateBy(x: 0, y: size.height)
+            context.translateBy(x: 0, y: targetSize.height)
             context.scaleBy(x: 1, y: -1)
 
             // Draw each annotation

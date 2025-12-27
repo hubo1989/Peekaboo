@@ -8,6 +8,7 @@
 import AppKit
 import Observation
 import os.log
+import PeekabooAutomation
 import PeekabooAutomationKit
 import ScreenCaptureKit
 import UniformTypeIdentifiers
@@ -73,8 +74,19 @@ final class ScreenshotCoordinator {
         }
 
         self.logger.info("Starting area capture")
+        // We set state to selecting immediately to prevent re-entry,
+        // but we'll capture screens asynchronously
         self.state = .selecting(mode: .area)
-        self.showSelectionOverlay()
+
+        Task {
+            let images = await self.captureAllScreens()
+            await MainActor.run {
+                // Ensure we are still in the correct state (user might have cancelled)
+                if case .selecting(let mode) = self.state, mode == .area {
+                    self.showSelectionOverlay(with: images)
+                }
+            }
+        }
     }
 
     /// Start full screen capture
@@ -255,15 +267,87 @@ final class ScreenshotCoordinator {
         }
 
         self.logger.info("Sending image to AI")
-        // TODO: Implement AI integration
-        _ = image
-        self.completeCapture()
+
+        Task {
+            // Optimize image for AI: resize and compress
+            let optimizedImage = self.optimizeImageForAI(image)
+
+            guard let jpegData = self.jpegData(from: optimizedImage) else {
+                self.logger.error("Failed to convert image to JPEG")
+                await MainActor.run { self.completeCapture() }
+                return
+            }
+
+            self.logger.info("Image prepared for AI. Original: \(image.size.width)x\(image.size.height), Optimized: \(optimizedImage.size.width)x\(optimizedImage.size.height)")
+
+            do {
+                let service = PeekabooAIService()
+                let result = try await service.analyzeImage(
+                    imageData: jpegData,
+                    question: "Please analyze this screenshot. Describe what you see and extract any text."
+                )
+
+                self.logger.info("AI analysis successful")
+
+                await MainActor.run {
+                    let pasteboard = NSPasteboard.general
+                    pasteboard.clearContents()
+                    pasteboard.setString(result, forType: .string)
+                    self.logger.info("AI response copied to clipboard")
+                    self.completeCapture()
+                }
+            } catch {
+                self.logger.error("AI analysis failed: \(error.localizedDescription)")
+                await MainActor.run { self.completeCapture() }
+            }
+        }
     }
 
     // MARK: - Private Methods
 
-    private func showSelectionOverlay() {
+    private func optimizeImageForAI(_ image: NSImage) -> NSImage {
+        let maxDimension: CGFloat = 2048
+        let size = image.size
+
+        // Check if resizing is needed
+        if size.width <= maxDimension && size.height <= maxDimension {
+            return image
+        }
+
+        // Calculate new size maintaining aspect ratio
+        let aspectRatio = size.width / size.height
+        var newSize: CGSize
+
+        if size.width > size.height {
+            newSize = CGSize(width: maxDimension, height: maxDimension / aspectRatio)
+        } else {
+            newSize = CGSize(width: maxDimension * aspectRatio, height: maxDimension)
+        }
+
+        // Create resized image
+        let newImage = NSImage(size: newSize)
+
+        newImage.lockFocus()
+        // High quality interpolation
+        NSGraphicsContext.current?.imageInterpolation = .high
+        image.draw(in: CGRect(origin: .zero, size: newSize), from: CGRect(origin: .zero, size: size), operation: .copy, fraction: 1.0)
+        newImage.unlockFocus()
+
+        return newImage
+    }
+
+    private func jpegData(from image: NSImage, compressionQuality: CGFloat = 0.8) -> Data? {
+        guard let tiffRepresentation = image.tiffRepresentation,
+              let bitmapImage = NSBitmapImageRep(data: tiffRepresentation) else {
+            return nil
+        }
+
+        return bitmapImage.representation(using: .jpeg, properties: [.compressionFactor: compressionQuality])
+    }
+
+    private func showSelectionOverlay(with images: [NSScreen: NSImage] = [:]) {
         self.selectionWindow = SelectionWindow(coordinator: self)
+        self.selectionWindow?.setScreenImages(images)
         self.selectionWindow?.showOverlay()
     }
 
@@ -316,12 +400,34 @@ final class ScreenshotCoordinator {
         }
     }
 
-    private func captureScreen(rect: CGRect) async throws -> NSImage {
+    private func captureAllScreens() async -> [NSScreen: NSImage] {
+        var images: [NSScreen: NSImage] = [:]
+
+        for screen in NSScreen.screens {
+            if let displayID = screen.displayID,
+               let image = try? await self.captureScreen(rect: screen.frame, displayID: displayID) {
+                images[screen] = image
+            }
+        }
+
+        return images
+    }
+
+    private func captureScreen(rect: CGRect, displayID: CGDirectDisplayID? = nil) async throws -> NSImage {
         // Use ScreenCaptureKit for screen capture (required for macOS 15+)
         let content = try await SCShareableContent.excludingDesktopWindows(false, onScreenWindowsOnly: true)
 
-        guard let display = content.displays.first else {
-            throw ScreenshotError.captureFailure
+        let display: SCDisplay
+        if let targetID = displayID {
+            guard let match = content.displays.first(where: { $0.displayID == targetID }) else {
+                throw ScreenshotError.captureFailure
+            }
+            display = match
+        } else {
+            guard let first = content.displays.first else {
+                throw ScreenshotError.captureFailure
+            }
+            display = first
         }
 
         let filter = SCContentFilter(display: display, excludingWindows: [])
@@ -391,5 +497,11 @@ enum ScreenshotError: Error, LocalizedError {
         case .noSelection:
             return "No region selected"
         }
+    }
+}
+
+private extension NSScreen {
+    var displayID: CGDirectDisplayID? {
+        return deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID
     }
 }

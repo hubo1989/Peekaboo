@@ -38,6 +38,9 @@ final class AnnotationManager {
     /// Currently drawing element (while dragging)
     var currentDrawing: AnyAnnotation?
 
+    /// Starting point of the current drawing operation
+    private var drawingStartPoint: CGPoint?
+
     /// Whether we're in text editing mode
     var isEditingText: Bool = false
 
@@ -90,6 +93,8 @@ final class AnnotationManager {
 
     /// Start drawing a new element
     func startDrawing(at point: CGPoint, shiftHeld: Bool = false) {
+        self.drawingStartPoint = point
+
         switch self.currentTool {
         case .rectangle, .ellipse, .arrow:
             let shape = ShapeAnnotation(
@@ -129,14 +134,14 @@ final class AnnotationManager {
 
     /// Continue drawing (drag)
     func continueDrawing(to point: CGPoint, shiftHeld: Bool = false) {
-        guard self.currentDrawing != nil else { return }
+        guard self.currentDrawing != nil, let startPoint = self.drawingStartPoint else { return }
 
         switch self.currentTool {
         case .rectangle, .ellipse, .arrow:
             let shape = ShapeAnnotation(
                 id: self.currentDrawing!.id,
                 shapeType: self.currentTool,
-                startPoint: self.getStartPoint() ?? point,
+                startPoint: startPoint,
                 endPoint: point,
                 strokeColor: self.strokeColor,
                 strokeWidth: self.strokeWidth,
@@ -156,7 +161,6 @@ final class AnnotationManager {
             self.currentDrawing = AnyAnnotation(path)
 
         case .mosaic:
-            let startPoint = self.getStartPoint() ?? point
             let region = CGRect(
                 x: min(startPoint.x, point.x),
                 y: min(startPoint.y, point.y),
@@ -176,6 +180,7 @@ final class AnnotationManager {
 
     /// Finish drawing
     func finishDrawing() {
+        self.drawingStartPoint = nil
         guard let drawing = self.currentDrawing else { return }
 
         // Only add if the element has meaningful size

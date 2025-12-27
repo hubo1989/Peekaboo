@@ -29,6 +29,16 @@
     "%lld" : {
 
     },
+    "%lld × %lld" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld × %2$lld"
+          }
+        }
+      }
+    },
     "%lld items" : {
 
     },
@@ -54,6 +64,9 @@
         }
       }
     },
+    "%lldpx" : {
+
+    },
     "•" : {
 
     },
@@ -78,10 +91,16 @@
     "👻 General Assistant" : {
 
     },
+    "🔍" : {
+
+    },
     "🔍 Debugging Helper" : {
 
     },
     "🧑‍[sh] Swift Developer" : {
+
+    },
+    "10x" : {
 
     },
     "About" : {
@@ -181,6 +200,9 @@
     "API key configured" : {
 
     },
+    "App Shortcuts" : {
+
+    },
     "Are you sure you want to delete '%@'? This action cannot be undone." : {
 
     },
@@ -237,6 +259,9 @@
     "Cancel" : {
 
     },
+    "Cancel (ESC)" : {
+
+    },
     "Cancel current task" : {
 
     },
@@ -284,6 +309,9 @@
 
     },
     "Close" : {
+
+    },
+    "Color" : {
 
     },
     "Configuration" : {
@@ -336,7 +364,13 @@
     "Conversation History" : {
 
     },
+    "Copy to Clipboard (⌘C)" : {
+
+    },
     "Current Session" : {
+
+    },
+    "Custom" : {
 
     },
     "Custom Instructions (Optional)" : {
@@ -452,6 +486,9 @@
     "Enter API key to override environment variable" : {
 
     },
+    "Enter text..." : {
+
+    },
     "Error" : {
 
     },
@@ -491,9 +528,6 @@
 
     },
     "Get your OpenAI API key" : {
-
-    },
-    "Global Shortcuts" : {
 
     },
     "gpt-4o, claude-3-opus, etc." : {
@@ -776,6 +810,9 @@
     "Permissions checklist" : {
 
     },
+    "Pin to Desktop" : {
+
+    },
     "Pixel Grid" : {
 
     },
@@ -824,6 +861,9 @@
     "Recording Permission Required" : {
 
     },
+    "Redo (⌘⇧Z)" : {
+
+    },
     "Refresh" : {
       "localizations" : {
         "zh-Hans" : {
@@ -862,6 +902,9 @@
     "Save" : {
 
     },
+    "Save to File (⌘S)" : {
+
+    },
     "Screen Recording" : {
       "localizations" : {
         "zh-Hans" : {
@@ -871,6 +914,9 @@
           }
         }
       }
+    },
+    "Screenshot Shortcuts" : {
+
     },
     "Search sessions..." : {
 
@@ -882,6 +928,9 @@
 
     },
     "Send to Agent" : {
+
+    },
+    "Send to AI" : {
 
     },
     "Session is empty." : {
@@ -959,6 +1008,9 @@
     "Stop" : {
 
     },
+    "Stroke Width" : {
+
+    },
     "Switch to text input" : {
 
     },
@@ -1018,6 +1070,9 @@
 
     },
     "Type your message..." : {
+
+    },
+    "Undo (⌘Z)" : {
 
     },
     "Unique identifier for this provider" : {

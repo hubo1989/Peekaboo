@@ -24,10 +24,16 @@ final class SelectionWindow {
     private var eventMonitor: Any?
     private weak var coordinator: ScreenshotCoordinator?
     private let mode: SelectionMode
+    private var screenImages: [NSScreen: NSImage] = [:]
 
     init(coordinator: ScreenshotCoordinator, mode: SelectionMode = .area) {
         self.coordinator = coordinator
         self.mode = mode
+    }
+
+    /// Set the background images for each screen
+    func setScreenImages(_ images: [NSScreen: NSImage]) {
+        self.screenImages = images
     }
 
     /// Show the selection overlay on all screens
@@ -92,7 +98,8 @@ final class SelectionWindow {
         let contentView = SelectionOverlayView(
             coordinator: self.coordinator,
             screenFrame: screen.frame,
-            mode: self.mode
+            mode: self.mode,
+            backgroundImage: self.screenImages[screen]
         )
 
         window.contentView = NSHostingView(rootView: contentView)
@@ -106,6 +113,10 @@ private class SelectionOverlayWindow: NSWindow {
     var onCancel: (() -> Void)?
 
     override var canBecomeKey: Bool {
+        return true
+    }
+
+    override var canBecomeMain: Bool {
         return true
     }
 
