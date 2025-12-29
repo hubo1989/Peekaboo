@@ -47,15 +47,25 @@ struct WindowAccessor: NSViewRepresentable {
 
     func makeNSView(context: Context) -> NSView {
         let view = NSView()
-        // Don't try to access window here - it's not available yet
         return view
     }
 
     func updateNSView(_ nsView: NSView, context: Context) {
-        // Window is available here - configure it
-        if let window = nsView.window {
+        guard let window = nsView.window else { return }
+        guard !context.coordinator.hasConfigured else { return }
+        context.coordinator.hasConfigured = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.windowAction(window)
         }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
+
+    class Coordinator {
+        var hasConfigured = false
     }
 }
 

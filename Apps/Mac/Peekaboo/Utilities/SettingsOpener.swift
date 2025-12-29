@@ -109,17 +109,29 @@ enum SettingsOpener {
 /// primary interface without a main window.
 struct HiddenWindowView: View {
     @Environment(\.openSettings) private var openSettings
+    @State private var isReady = false
 
     var body: some View {
-        Color.clear
-            .frame(width: 1, height: 1)
-            .onReceive(NotificationCenter.default.publisher(for: .openSettingsRequest)) { _ in
-                Task { @MainActor in
-                    self.openSettings()
-                }
+        Group {
+            if self.isReady {
+                Color.clear
+                    .frame(width: 1, height: 1)
+            } else {
+                EmptyView()
             }
-            .onAppear {
-                // Hide this window from the dock menu and window lists
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .openSettingsRequest)) { _ in
+            Task { @MainActor in
+                self.openSettings()
+            }
+        }
+        .task {
+            try? await Task.sleep(for: .milliseconds(100))
+            self.isReady = true
+        }
+        .onAppear {
+            // Hide this window from the dock menu and window lists
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 if let window = NSApp.windows
                     .first(where: { $0.identifier?.rawValue.contains("HiddenWindow") ?? false })
                 {
@@ -127,6 +139,7 @@ struct HiddenWindowView: View {
                     window.title = "" // Remove title to ensure it doesn't show anywhere
                 }
             }
+        }
     }
 }
 

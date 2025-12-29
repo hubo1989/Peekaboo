@@ -127,18 +127,11 @@ struct PeekabooApp: App {
 
         // Inspector window
         WindowGroup("Inspector", id: "inspector") {
-            if self.inspectorRequested {
-                InspectorWindow()
-                    .environment(self.settings)
-                    .environment(self.permissions)
-            } else {
-                // Placeholder view until Inspector is actually requested
-                Color.clear
-                    .frame(width: 1, height: 1)
-                    .onAppear {
-                        self.logger.info("Inspector window created but not yet requested")
-                    }
-            }
+            InspectorWindowContainer(
+                inspectorRequested: self.inspectorRequested,
+                settings: self.settings,
+                permissions: self.permissions
+            )
         }
         .windowResizability(.contentSize)
         .defaultSize(width: 450, height: 700)
@@ -157,6 +150,37 @@ struct PeekabooApp: App {
                         self.logger.error("VisualizerCoordinator not initialized in AppDelegate")
                     }
                 }
+        }
+    }
+}
+
+// MARK: - Inspector Window Container
+
+/// Container view for Inspector window that handles delayed rendering to avoid
+/// multi-monitor layout crashes (same issue as HiddenWindowView).
+private struct InspectorWindowContainer: View {
+    let inspectorRequested: Bool
+    let settings: PeekabooSettings
+    let permissions: Permissions
+
+    @State private var isReady = false
+
+    var body: some View {
+        Group {
+            if self.inspectorRequested {
+                InspectorWindow()
+                    .environment(self.settings)
+                    .environment(self.permissions)
+            } else if self.isReady {
+                Color.clear
+                    .frame(width: 1, height: 1)
+            } else {
+                EmptyView()
+            }
+        }
+        .task {
+            try? await Task.sleep(for: .milliseconds(100))
+            self.isReady = true
         }
     }
 }
