@@ -45,8 +45,8 @@ struct RealtimeVoiceView: View {
         }
         .padding(24)
         .frame(width: 520, height: 640)
-        .alert("Connection Error", isPresented: self.$showError) {
-            Button("OK") {
+        .alert(String(localized: "Connection Error"), isPresented: self.$showError) {
+            Button(String(localized: "OK")) {
                 self.showError = false
             }
         } message: {
@@ -68,11 +68,11 @@ struct RealtimeVoiceView: View {
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing))
 
-            Text("Realtime Voice Assistant")
+            Text(String(localized: "Realtime Voice Assistant"))
                 .font(.title2)
                 .fontWeight(.semibold)
 
-            Text("Have a natural conversation with Peekaboo")
+            Text(String(localized: "Have a natural conversation with Peekaboo"))
                 .font(.subheadline)
                 .foregroundColor(.secondary)
         }
@@ -84,7 +84,7 @@ struct RealtimeVoiceView: View {
                 .fill(self.realtimeService.isConnected ? Color.green : Color.gray)
                 .frame(width: 8, height: 8)
 
-            Text(self.realtimeService.isConnected ? "Connected" : "Disconnected")
+            Text(self.realtimeService.isConnected ? String(localized: "Connected") : String(localized: "Disconnected"))
                 .font(.caption)
                 .foregroundColor(.secondary)
 
@@ -183,16 +183,16 @@ struct RealtimeVoiceView: View {
                 .font(.system(size: 60))
                 .foregroundColor(.gray)
 
-            Text("Not Connected")
+            Text(String(localized: "Not Connected"))
                 .font(.headline)
                 .foregroundColor(.secondary)
 
             if self.isConnecting {
-                ProgressView("Connecting...")
+                ProgressView(String(localized: "Connecting..."))
                     .progressViewStyle(.linear)
                     .frame(width: 200)
             } else {
-                Button("Start Conversation") {
+                Button(String(localized: "Start Conversation")) {
                     self.startConversation()
                 }
                 .buttonStyle(.borderedProminent)
@@ -203,7 +203,7 @@ struct RealtimeVoiceView: View {
 
     private var transcriptView: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Label("Conversation History", systemImage: "text.bubble")
+            Label(String(localized: "Conversation History"), systemImage: "text.bubble")
                 .font(.caption)
                 .foregroundColor(.secondary)
 
@@ -256,7 +256,7 @@ struct RealtimeVoiceView: View {
 
     private var actionButtons: some View {
         HStack(spacing: 16) {
-            Button("Close") {
+            Button(String(localized: "Close")) {
                 Task {
                     await self.realtimeService.endSession()
                 }
@@ -266,7 +266,7 @@ struct RealtimeVoiceView: View {
 
             if self.realtimeService.isConnected {
                 if self.realtimeService.connectionState == .speaking {
-                    Button("Interrupt") {
+                    Button(String(localized: "Interrupt")) {
                         Task {
                             try? await self.realtimeService.interrupt()
                         }
@@ -274,7 +274,7 @@ struct RealtimeVoiceView: View {
                     .buttonStyle(.bordered)
                 }
 
-                Button("End Session") {
+                Button(String(localized: "End Session")) {
                     Task {
                         await self.realtimeService.endSession()
                     }
@@ -320,15 +320,15 @@ struct RealtimeVoiceView: View {
     private var statusText: String {
         switch self.realtimeService.connectionState {
         case .idle:
-            "Ready to listen"
+            return String(localized: "Ready to listen")
         case .listening:
-            "Listening..."
+            return String(localized: "Listening...")
         case .processing:
-            "Processing..."
+            return String(localized: "Processing...")
         case .speaking:
-            "Speaking..."
+            return String(localized: "Speaking...")
         case .error:
-            "Error occurred"
+            return String(localized: "Error occurred")
         }
     }
 
@@ -365,8 +365,8 @@ struct RealtimeVoiceSettingsView: View {
 
     var body: some View {
         Form {
-            Section("Voice Selection") {
-                Picker("Assistant Voice", selection: self.$selectedVoice) {
+            Section(String(localized: "Voice Selection")) {
+                Picker(String(localized: "Assistant Voice"), selection: self.$selectedVoice) {
                     ForEach(RealtimeVoice.allCases, id: \.rawValue) { voice in
                         Text(voice.displayName)
                             .tag(voice.rawValue)
@@ -378,25 +378,25 @@ struct RealtimeVoiceSettingsView: View {
                     }
                 }
 
-                Text("Voice changes will take effect in the next conversation")
+                Text(String(localized: "Voice changes will take effect in the next conversation"))
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
 
-            Section("Instructions") {
+            Section(String(localized: "Instructions")) {
                 TextEditor(text: self.$customInstructions)
                     .font(.system(.body, design: .monospaced))
                     .frame(minHeight: 100)
 
-                Text("Custom instructions for the AI assistant")
+                Text(String(localized: "Custom instructions for the AI assistant"))
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
 
-            Section("Voice Detection") {
-                Toggle("Use Voice Activity Detection (VAD)", isOn: self.$useVAD)
+            Section(String(localized: "Voice Detection")) {
+                Toggle(String(localized: "Use Voice Activity Detection (VAD)"), isOn: self.$useVAD)
 
-                Text("VAD automatically detects when you start and stop speaking")
+                Text(String(localized: "VAD automatically detects when you start and stop speaking"))
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
@@ -410,12 +410,12 @@ struct RealtimeVoiceSettingsView: View {
 extension RealtimeVoice {
     var displayName: String {
         switch self {
-        case .alloy: "Alloy (Neutral)"
-        case .echo: "Echo (Smooth)"
-        case .fable: "Fable (British)"
-        case .onyx: "Onyx (Deep)"
-        case .nova: "Nova (Friendly)"
-        case .shimmer: "Shimmer (Energetic)"
+        case .alloy: return String(localized: "Alloy (Neutral)")
+        case .echo: return String(localized: "Echo (Smooth)")
+        case .fable: return String(localized: "Fable (British)")
+        case .onyx: return String(localized: "Onyx (Deep)")
+        case .nova: return String(localized: "Nova (Friendly)")
+        case .shimmer: return String(localized: "Shimmer (Energetic)")
         }
     }
 }

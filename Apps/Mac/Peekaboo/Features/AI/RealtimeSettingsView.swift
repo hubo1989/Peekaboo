@@ -25,12 +25,12 @@ struct RealtimeSettingsView: View {
         VStack(spacing: 16) {
             // Header
             HStack {
-                Label("Realtime Settings", systemImage: "waveform.circle")
+                Label(String(localized: "Realtime Settings"), systemImage: "waveform.circle")
                     .font(.headline)
 
                 Spacer()
 
-                Button("Done") {
+                Button(String(localized: "Done")) {
                     self.dismiss()
                 }
                 .buttonStyle(.borderedProminent)
@@ -40,11 +40,11 @@ struct RealtimeSettingsView: View {
 
             // Voice selection
             VStack(alignment: .leading, spacing: 8) {
-                Text("Voice")
+                Text(String(localized: "Voice"))
                     .font(.caption)
                     .foregroundColor(.secondary)
 
-                Picker("Voice", selection: self.$selectedVoice) {
+                Picker(String(localized: "Voice"), selection: self.$selectedVoice) {
                     ForEach([RealtimeVoice.alloy, .echo, .fable, .onyx, .nova, .shimmer], id: \.self) { voice in
                         Text(voice.displayName)
                             .tag(voice)
@@ -60,7 +60,7 @@ struct RealtimeSettingsView: View {
 
             // Custom instructions
             VStack(alignment: .leading, spacing: 8) {
-                Text("Custom Instructions (Optional)")
+                Text(String(localized: "Custom Instructions (Optional)"))
                     .font(.caption)
                     .foregroundColor(.secondary)
 

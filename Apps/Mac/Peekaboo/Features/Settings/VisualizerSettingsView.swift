@@ -16,10 +16,10 @@ struct VisualizerSettingsView: View {
             Section {
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Visual Feedback")
+                        Text(String(localized: "Visual Feedback"))
                             .font(.title2)
                             .fontWeight(.semibold)
-                        Text("Delightful animations for all Peekaboo operations")
+                        Text(String(localized: "Delightful animations for all Peekaboo operations"))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -30,10 +30,10 @@ struct VisualizerSettingsView: View {
             }
 
             // Animation Controls Section
-            Section("Animation Settings") {
+            Section(String(localized: "Animation Settings")) {
                 // Animation Speed
                 HStack {
-                    Label("Animation Speed", systemImage: "speedometer")
+                    Label(String(localized: "Animation Speed"), systemImage: "speedometer")
                     Spacer()
                     Text(String(format: "%.1fx", self.settings.visualizerAnimationSpeed))
                         .foregroundStyle(.secondary)
@@ -46,7 +46,7 @@ struct VisualizerSettingsView: View {
 
                 // Effect Intensity
                 HStack {
-                    Label("Effect Intensity", systemImage: "wand.and.rays")
+                    Label(String(localized: "Effect Intensity"), systemImage: "wand.and.rays")
                     Spacer()
                     Text(String(format: "%.1fx", self.settings.visualizerEffectIntensity))
                         .foregroundStyle(.secondary)
@@ -59,7 +59,7 @@ struct VisualizerSettingsView: View {
 
                 // Sound Effects
                 HStack {
-                    Label("Sound Effects", systemImage: "speaker.wave.2")
+                    Label(String(localized: "Sound Effects"), systemImage: "speaker.wave.2")
                     Spacer()
                     Toggle("", isOn: self.$settings.visualizerSoundEnabled)
                         .toggleStyle(IOSToggleStyle())
@@ -68,7 +68,7 @@ struct VisualizerSettingsView: View {
 
                 // Keyboard Theme
                 VStack(alignment: .leading, spacing: 8) {
-                    Label("Keyboard Theme", systemImage: "keyboard")
+                    Label(String(localized: "Keyboard Theme"), systemImage: "keyboard")
                     Picker("", selection: self.$settings.visualizerKeyboardTheme) {
                         ForEach(self.keyboardThemes, id: \.self) { theme in
                             Text(theme.capitalized).tag(theme)
@@ -81,9 +81,9 @@ struct VisualizerSettingsView: View {
             .opacity(self.settings.visualizerEnabled ? 1 : 0.5)
 
             // Individual Animations Section
-            Section("Animation Types") {
+            Section(String(localized: "Animation Types")) {
                 AnimationToggleRow(
-                    title: "Screenshot Flash",
+                    title: String(localized: "Screenshot Flash"),
                     icon: "camera.viewfinder",
                     isOn: self.$settings.screenshotFlashEnabled,
                     isEnabled: self.settings.visualizerEnabled,
@@ -91,7 +91,7 @@ struct VisualizerSettingsView: View {
                     settings: self.settings)
 
                 AnimationToggleRow(
-                    title: "Click Animation",
+                    title: String(localized: "Click Animation"),
                     icon: "cursorarrow.click",
                     isOn: self.$settings.clickAnimationEnabled,
                     isEnabled: self.settings.visualizerEnabled,
@@ -99,7 +99,7 @@ struct VisualizerSettingsView: View {
                     settings: self.settings)
 
                 AnimationToggleRow(
-                    title: "Type Animation",
+                    title: String(localized: "Type Animation"),
                     icon: "keyboard",
                     isOn: self.$settings.typeAnimationEnabled,
                     isEnabled: self.settings.visualizerEnabled,
@@ -107,7 +107,7 @@ struct VisualizerSettingsView: View {
                     settings: self.settings)
 
                 AnimationToggleRow(
-                    title: "Scroll Animation",
+                    title: String(localized: "Scroll Animation"),
                     icon: "arrow.up.arrow.down",
                     isOn: self.$settings.scrollAnimationEnabled,
                     isEnabled: self.settings.visualizerEnabled,
@@ -115,7 +115,7 @@ struct VisualizerSettingsView: View {
                     settings: self.settings)
 
                 AnimationToggleRow(
-                    title: "Mouse Trail",
+                    title: String(localized: "Mouse Trail"),
                     icon: "scribble",
                     isOn: self.$settings.mouseTrailEnabled,
                     isEnabled: self.settings.visualizerEnabled,
@@ -123,7 +123,7 @@ struct VisualizerSettingsView: View {
                     settings: self.settings)
 
                 AnimationToggleRow(
-                    title: "Swipe Path",
+                    title: String(localized: "Swipe Path"),
                     icon: "hand.draw",
                     isOn: self.$settings.swipePathEnabled,
                     isEnabled: self.settings.visualizerEnabled,
@@ -131,7 +131,7 @@ struct VisualizerSettingsView: View {
                     settings: self.settings)
 
                 AnimationToggleRow(
-                    title: "Hotkey Overlay",
+                    title: String(localized: "Hotkey Overlay"),
                     icon: "command",
                     isOn: self.$settings.hotkeyOverlayEnabled,
                     isEnabled: self.settings.visualizerEnabled,
@@ -139,7 +139,7 @@ struct VisualizerSettingsView: View {
                     settings: self.settings)
 
                 AnimationToggleRow(
-                    title: "App Lifecycle",
+                    title: String(localized: "App Lifecycle"),
                     icon: "app.badge",
                     isOn: self.$settings.appLifecycleEnabled,
                     isEnabled: self.settings.visualizerEnabled,
@@ -147,7 +147,7 @@ struct VisualizerSettingsView: View {
                     settings: self.settings)
 
                 AnimationToggleRow(
-                    title: "Window Operations",
+                    title: String(localized: "Window Operations"),
                     icon: "macwindow",
                     isOn: self.$settings.windowOperationEnabled,
                     isEnabled: self.settings.visualizerEnabled,
@@ -155,7 +155,7 @@ struct VisualizerSettingsView: View {
                     settings: self.settings)
 
                 AnimationToggleRow(
-                    title: "Menu Navigation",
+                    title: String(localized: "Menu Navigation"),
                     icon: "menubar.rectangle",
                     isOn: self.$settings.menuNavigationEnabled,
                     isEnabled: self.settings.visualizerEnabled,
@@ -163,7 +163,7 @@ struct VisualizerSettingsView: View {
                     settings: self.settings)
 
                 AnimationToggleRow(
-                    title: "Dialog Interaction",
+                    title: String(localized: "Dialog Interaction"),
                     icon: "text.bubble",
                     isOn: self.$settings.dialogInteractionEnabled,
                     isEnabled: self.settings.visualizerEnabled,
@@ -171,7 +171,7 @@ struct VisualizerSettingsView: View {
                     settings: self.settings)
 
                 AnimationToggleRow(
-                    title: "Space Transitions",
+                    title: String(localized: "Space Transitions"),
                     icon: "squares.below.rectangle",
                     isOn: self.$settings.spaceTransitionEnabled,
                     isEnabled: self.settings.visualizerEnabled,
@@ -180,10 +180,10 @@ struct VisualizerSettingsView: View {
             }
             .opacity(self.settings.visualizerEnabled ? 1 : 0.5)
 
-            Section("Watch Capture") {
+            Section(String(localized: "Watch Capture")) {
                 AnimationToggleRow(
-                    title: "Watch Capture HUD",
-                    subtitle: "Pulse indicator for `peekaboo watch` sessions",
+                    title: String(localized: "Watch Capture HUD"),
+                    subtitle: String(localized: "Pulse indicator for `peekaboo watch` sessions"),
                     icon: "applewatch.watchface",
                     isOn: self.$settings.watchCaptureHUDEnabled,
                     isEnabled: self.settings.visualizerEnabled,
@@ -193,10 +193,10 @@ struct VisualizerSettingsView: View {
             .opacity(self.settings.visualizerEnabled ? 1 : 0.5)
 
             // Easter Eggs Section
-            Section("Easter Eggs") {
+            Section(String(localized: "Easter Eggs")) {
                 AnimationToggleRow(
-                    title: "Ghost Animation",
-                    subtitle: "Shows every 10th screenshot",
+                    title: String(localized: "Ghost Animation"),
+                    subtitle: String(localized: "Shows every 10th screenshot"),
                     icon: "eye.slash",
                     isOn: self.$settings.ghostEasterEggEnabled,
                     isEnabled: self.settings.visualizerEnabled,

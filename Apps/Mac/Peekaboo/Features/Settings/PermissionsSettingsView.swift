@@ -5,14 +5,14 @@ struct PermissionsSettingsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
-            Text("Grant required permissions so Peekaboo can capture and automate reliably.")
+            Text(String(localized: "Grant required permissions so Peekaboo can capture and automate reliably."))
                 .padding(.top, 4)
 
             PermissionChecklistView(showOptional: true)
                 .padding(.horizontal, 2)
                 .padding(.vertical, 6)
 
-            Button("Show permissions onboarding") {
+            Button(String(localized: "Show permissions onboarding")) {
                 PermissionsOnboardingController.shared.show(permissions: self.permissions)
             }
             .buttonStyle(.bordered)

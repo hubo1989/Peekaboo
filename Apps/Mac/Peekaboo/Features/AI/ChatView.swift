@@ -65,7 +65,7 @@ public struct PeekabooChatView: View {
             // Input area
             VStack(alignment: .trailing, spacing: 8) {
                 HStack(alignment: .bottom, spacing: 8) {
-                    TextField("Type your message...", text: self.$inputText, axis: .vertical)
+                    TextField(String(localized: "Type your message..."), text: self.$inputText, axis: .vertical)
                         .textFieldStyle(.plain)
                         .padding(8)
                         .background(Color.gray.opacity(0.1))
@@ -88,7 +88,7 @@ public struct PeekabooChatView: View {
                             .isGenerating)
 
                         if self.ai.isGenerating {
-                            Button("Cancel") {
+                            Button(String(localized: "Cancel")) {
                                 self.ai.cancelGeneration()
                             }
                             .buttonStyle(.bordered)
@@ -99,7 +99,7 @@ public struct PeekabooChatView: View {
 
                 // Quick actions
                 HStack {
-                    Button("Clear") {
+                    Button(String(localized: "Clear")) {
                         self.ai.clear()
                         self.inputText = ""
                     }
@@ -113,7 +113,7 @@ public struct PeekabooChatView: View {
                         HStack(spacing: 4) {
                             ProgressView()
                                 .controlSize(.small)
-                            Text("Generating...")
+                            Text(String(localized: "Generating..."))
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -125,12 +125,12 @@ public struct PeekabooChatView: View {
         .onAppear {
             self.isInputFocused = true
         }
-        .alert("Error", isPresented: .constant(self.ai.error != nil)) {
-            Button("OK") {
+        .alert(String(localized: "Error"), isPresented: .constant(self.ai.error != nil)) {
+            Button(String(localized: "OK")) {
                 self.ai.error = nil
             }
         } message: {
-            Text(self.ai.error?.localizedDescription ?? "Unknown error")
+            Text(self.ai.error?.localizedDescription ?? String(localized: "Unknown error"))
         }
     }
 
@@ -176,7 +176,7 @@ public struct MessageBubble: View {
                     HStack(spacing: 4) {
                         ProgressView()
                             .controlSize(.mini)
-                        Text("AI is typing...")
+                        Text(String(localized: "AI is typing..."))
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }

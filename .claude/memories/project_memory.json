@@ -4,59 +4,53 @@
   "realtime_memories": [
     {
       "type": "technical_note",
-      "content": "[Fix] Screenshot Clarity & Lifecycle: Resolved Retina blurriness by correcting logical/pixel size handling in `renderFinalImage`. Fixed window close crash by allowing system close (`windowShouldClose` returns true) and handling cleanup safely in `windowWillClose` via async dispatch.",
-      "added_at": "2025-12-28T00:00:00.000000",
-      "source": "consolidation"
-    },
-    {
-      "type": "architectural_decision",
-      "content": "[Optimization] AI Image Handling: Implemented `optimizeImageForAI` in `ScreenshotCoordinator`. Local operations (edit/save/copy) retain full resolution. AI uploads are resized (max 2048px) and compressed to reduce token usage/latency while preserving detail.",
-      "added_at": "2025-12-28T00:00:00.000000",
-      "source": "consolidation"
-    },
-    {
-      "type": "architectural_decision",
-      "content": "[Performance] Capture Workflow: Adopted a split strategy: 1) Pre-capture full screen for selection/color-picking (high transient memory). 2) Re-capture/crop specific region for annotation/output (optimized memory). This balances responsiveness with resource usage.",
-      "added_at": "2025-12-28T00:00:00.000000",
+      "content": "[Fix] Release Build Issues: (1) Never use `EmptyView()` in `Window` type - causes `NSHostingView.updateWindowContentSizeExtremaIfNecessary` constraint crash. Always return fixed-size view like `Color.clear.frame(width:1,height:1)`. (2) `ScreenshotCoordinator.completeCapture()` must reset state to `.idle` directly without Task delay - delayed Task doesn't execute reliably in Release builds.",
+      "added_at": "2025-12-30T00:00:00.000000",
       "source": "consolidation"
     },
     {
       "type": "technical_note",
-      "content": "[Fix] Interaction Polish: Addressed usability issues including drag direction logic, initial input responsiveness (`canBecomeMain=true`), and safe window teardown preventing coordinator deadlocks.",
+      "content": "[Fix] Screenshot UX & Gestures: (1) Use `.highPriorityGesture()` for `DragGesture` to ensure precedence over `onContinuousHover`. (2) Use `DragGesture(minimumDistance: 1)` instead of 0 to avoid gesture conflicts. (3) Add `.interpolation(.high).antialiased(true)` to Image views for sharp Retina rendering.",
+      "added_at": "2025-12-30T00:00:00.000000",
+      "source": "consolidation"
+    },
+    {
+      "type": "technical_note",
+      "content": "[Fix] AppKit Window Lifecycle: To prevent `EXC_BAD_ACCESS` crashes in `objc_release`: (1) Keep strong reference to windows until after run loop. (2) Release `contentView` first with `window.contentView = nil`. (3) Use `DispatchQueue.main.async` to delay final release. (4) Proper `windowShouldClose`/`windowWillClose` handling with async dispatch for safe teardown.",
+      "added_at": "2025-12-30T00:00:00.000000",
+      "source": "consolidation"
+    },
+    {
+      "type": "architectural_decision",
+      "content": "[Optimization] AI Image Handling: `optimizeImageForAI` resizes (max 2048px) and compresses for AI uploads. Local operations (edit/save/copy) retain full resolution.",
       "added_at": "2025-12-28T00:00:00.000000",
       "source": "consolidation"
     },
     {
-      "type": "user_preference",
-      "content": "User prioritizes high-fidelity local assets (no compression on edit/save) but explicitly requested optimization for AI uploads.",
-      "added_at": "2025-12-28T00:00:00.000000",
+      "type": "architectural_decision",
+      "content": "[Architecture] Config Sharing: GUI, CLI, and MCP share configuration via `~/.peekaboo/config.json`. GUI's `PeekabooSettings.updateConfigFile()` auto-syncs provider/model changes. API keys stored in `~/.peekaboo/credentials`. Custom providers added via GUI are available to CLI/MCP through `ConfigurationManager`.",
+      "added_at": "2025-12-30T00:00:00.000000",
+      "source": "consolidation"
+    },
+    {
+      "type": "technical_note",
+      "content": "[CLI Installation] Build: `pnpm run build:cli` or `pnpm run build:swift:all`. Install: `sudo ln -sf /path/to/peekaboo /usr/local/bin/peekaboo`. Note: /usr/local/bin may not be in PATH on macOS - add `export PATH=\"/usr/local/bin:$PATH\"` to ~/.zshrc if needed. For Claude Desktop MCP: run `./scripts/install-claude-desktop.sh`.",
+      "added_at": "2025-12-30T00:00:00.000000",
       "source": "consolidation"
     },
     {
       "type": "claude_response",
-      "content": "Memory consolidation completed.",
-      "added_at": "2025-12-28T00:02:23.980761",
+      "content": "我已经在代码库中完成了初步调研。Peekaboo 的 Mac 应用使用 **String Catalog (`Localizable.xcstrings`)** 进行国际化，目前源语言是中文，英语翻译不完整且有很多硬编码的字符串。\n\n以下是我为你整理的各界面主要英文内容及其翻译建议：\n\n### 1. 聊天与智能体控制 (Chat & AI Assistant)\n| 英文内容 | 中文翻译 | 所在",
+      "added_at": "2025-12-30T16:51:42.171293",
       "source": "realtime_capture"
     },
     {
       "type": "message",
-      "content": "项目现在的ai功能不是正常可用的么？",
-      "added_at": "2025-12-28T00:02:23.981153",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "claude_response",
-      "content": "我已经修复了 AI 集成。\n\n**修复内容**：\n`ScreenshotCoordinator.swift` 中的 `sendToAI` 方法之前是一个占位符（TODO）。\n现在，我已经将其连接到核心的 `PeekabooAIService`。\n\n**工作流程**：\n1.  **预处理**：图片会被智能缩放（长边限制 2048px）并压缩为 JPEG。\n2.  **分析**：调用 `Peekabo",
-      "added_at": "2025-12-28T00:20:58.752868",
-      "source": "realtime_capture"
-    },
-    {
-      "type": "message",
-      "content": "你现在做的是截图后进入编辑页面，同时上传图片给llm作为聊天信息？",
-      "added_at": "2025-12-28T00:20:58.752892",
+      "content": "1、修复硬编码：将代码中硬编码的英文改为使用本地化键值 2、提取各个设置页面和inspector更详细的列表 3、自动翻译并应用",
+      "added_at": "2025-12-30T16:51:42.171335",
       "source": "realtime_capture"
     }
   ],
   "created_at": "2025-12-26T17:55:00.226590",
-  "updated_at": "2025-12-28T00:20:58.752893"
+  "updated_at": "2025-12-30T16:51:42.171336"
 }

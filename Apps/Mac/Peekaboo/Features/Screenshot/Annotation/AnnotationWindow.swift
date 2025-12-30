@@ -103,9 +103,17 @@ final class AnnotationWindowController: NSObject, NSWindowDelegate {
         }
 
         // Clear delegate to avoid double handling in windowWillClose
+        // Keep strong reference until after AppKit display cycle completes
+        let windowToClose = self.window
         self.window?.delegate = nil
+        self.window?.contentView = nil  // Release SwiftUI hosting view first
         self.window?.orderOut(nil)
         self.window = nil
+
+        // Allow AppKit to complete any pending display cycle operations
+        DispatchQueue.main.async {
+            _ = windowToClose?.frame
+        }
     }
 
     // MARK: - NSWindowDelegate

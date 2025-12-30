@@ -15,10 +15,10 @@ struct ShortcutSettingsView: View {
             Section {
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Keyboard Shortcuts")
+                        Text(String(localized: "Keyboard Shortcuts"))
                             .font(.title2)
                             .fontWeight(.semibold)
-                        Text("Customize global keyboard shortcuts for quick access")
+                        Text(String(localized: "Customize global keyboard shortcuts for quick access"))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -26,68 +26,68 @@ struct ShortcutSettingsView: View {
                 }
             }
 
-            Section("App Shortcuts") {
+            Section(String(localized: "App Shortcuts")) {
                 VStack(spacing: 16) {
                     ShortcutRecorderView(
-                        title: "Toggle Popover",
+                        title: String(localized: "Toggle Popover"),
                         shortcutName: .togglePopover)
 
                     Divider()
 
                     ShortcutRecorderView(
-                        title: "Show Main Window",
+                        title: String(localized: "Show Main Window"),
                         shortcutName: .showMainWindow)
 
                     Divider()
 
                     ShortcutRecorderView(
-                        title: "Show Inspector",
+                        title: String(localized: "Show Inspector"),
                         shortcutName: .showInspector)
                 }
                 .padding(.vertical, 8)
             }
 
-            Section("Screenshot Shortcuts") {
+            Section(String(localized: "Screenshot Shortcuts")) {
                 VStack(spacing: 16) {
                     ShortcutRecorderView(
-                        title: "Capture Area",
+                        title: String(localized: "Capture Area"),
                         shortcutName: .captureArea)
 
                     Divider()
 
                     ShortcutRecorderView(
-                        title: "Capture Screen",
+                        title: String(localized: "Capture Screen"),
                         shortcutName: .captureScreen)
 
                     Divider()
 
                     ShortcutRecorderView(
-                        title: "Capture Window",
+                        title: String(localized: "Capture Window"),
                         shortcutName: .captureWindow)
 
                     Divider()
 
                     ShortcutRecorderView(
-                        title: "Repeat Last Capture",
+                        title: String(localized: "Repeat Last Capture"),
                         shortcutName: .repeatLastCapture)
                 }
                 .padding(.vertical, 8)
             }
 
-            Section("Instructions") {
+            Section(String(localized: "Instructions")) {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
                         Image(systemName: "info.circle")
                             .foregroundColor(.blue)
-                        Text("How to record shortcuts:")
+                        Text(String(localized: "How to record shortcuts:"))
                             .font(.headline)
                     }
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Label("Click \"Record\" next to any shortcut", systemImage: "1.circle")
-                        Label("Press your desired key combination", systemImage: "2.circle")
-                        Label("Click \"Done\" to save or \"Cancel\" to abort", systemImage: "3.circle")
-                        Label("Use \"Clear\" to remove a shortcut entirely", systemImage: "4.circle")
+                        Label(String(localized: "Click \"Record\" next to any shortcut"), systemImage: "1.circle")
+                        Label(String(localized: "Press your desired key combination"), systemImage: "2.circle")
+                        Label(String(localized: "Click \"Done\" to save or \"Cancel\" to abort"), systemImage: "3.circle")
+                        Label(String(localized: "Use \"Clear\" to remove a shortcut entirely"), systemImage: "4.circle")
                     }
                     .font(.caption)
                     .foregroundColor(.secondary)
@@ -96,13 +96,13 @@ struct ShortcutSettingsView: View {
                         .padding(.vertical, 4)
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Tips:")
+                        Text(String(localized: "Tips:"))
                             .font(.subheadline)
                             .fontWeight(.medium)
 
-                        Text("• Shortcuts must include at least one modifier key (⌘, ⌥, ⌃, or ⇧)")
-                        Text("• Avoid common system shortcuts like ⌘Space or ⌘Tab")
-                        Text("• Changes take effect immediately without restart")
+                        Text(String(localized: "• Shortcuts must include at least one modifier key (⌘, ⌥, ⌃, or ⇧)"))
+                        Text(String(localized: "• Avoid common system shortcuts like ⌘Space or ⌘Tab"))
+                        Text(String(localized: "• Changes take effect immediately without restart"))
                     }
                     .font(.caption)
                     .foregroundColor(.secondary)

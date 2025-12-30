@@ -9,12 +9,12 @@ struct ActionButtonsView: View {
 
     var body: some View {
         HStack(spacing: 10) {
-            Button("Open Peekaboo") {
+            Button(String(localized: "Open Peekaboo")) {
                 self.onOpenMainWindow()
             }
             .buttonStyle(.borderedProminent)
 
-            Button("New Session") {
+            Button(String(localized: "New Session")) {
                 self.onNewSession()
             }
             .buttonStyle(.bordered)

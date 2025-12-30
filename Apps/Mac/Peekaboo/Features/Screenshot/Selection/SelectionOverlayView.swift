@@ -60,8 +60,11 @@ struct SelectionOverlayView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .contentShape(Rectangle())
-            .gesture(self.dragGesture)
+            // Use high priority gesture to ensure drag takes precedence over hover
+            .highPriorityGesture(self.dragGesture)
             .onContinuousHover { phase in
+                // Only track hover when not dragging to avoid conflicts
+                guard !self.isDragging else { return }
                 switch phase {
                 case .active(let location):
                     self.mouseLocation = location
@@ -293,7 +296,7 @@ struct SelectionOverlayView: View {
     // MARK: - Gesture
 
     private var dragGesture: some Gesture {
-        DragGesture(minimumDistance: 0)
+        DragGesture(minimumDistance: 1)
             .onChanged { value in
                 if !self.isDragging {
                     self.startPoint = value.startLocation

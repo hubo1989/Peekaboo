@@ -43,7 +43,7 @@ struct StatusBarContentView: View {
 
                     Spacer(minLength: 0)
 
-                    Text(self.detailsExpanded ? "Hide" : "Details")
+                    Text(self.detailsExpanded ? String(localized: "Hide") : String(localized: "Details"))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -60,10 +60,10 @@ struct StatusBarContentView: View {
 struct EmptyStateView: View {
     var body: some View {
         VStack(spacing: 6) {
-            Text("No sessions yet")
+            Text(String(localized: "No sessions yet"))
                 .font(.subheadline.weight(.semibold))
 
-            Text("Ask Peekaboo something to get started.")
+            Text(String(localized: "Ask Peekaboo something to get started."))
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
@@ -80,13 +80,13 @@ struct RecentSessionsView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Text("Recent")
+                Text(String(localized: "Recent"))
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(.secondary)
 
                 Spacer()
 
-                Button(self.detailsExpanded ? "Less" : "More") {
+                Button(self.detailsExpanded ? String(localized: "Less") : String(localized: "More")) {
                     withAnimation(.easeInOut(duration: 0.15)) {
                         self.detailsExpanded.toggle()
                     }
@@ -150,7 +150,7 @@ private struct SessionSummaryView: View {
                     .foregroundStyle(.secondary)
                     .lineLimit(3)
             } else {
-                Text("Session is empty.")
+                Text(String(localized: "Session is empty."))
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

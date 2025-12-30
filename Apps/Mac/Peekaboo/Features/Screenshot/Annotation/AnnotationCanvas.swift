@@ -17,11 +17,21 @@ struct AnnotationCanvas: View {
     @State private var canvasSize: CGSize = .zero
     @State private var imageRect: CGRect = .zero
 
+    /// Get the actual pixel dimensions of the image
+    private var pixelSize: CGSize {
+        if let rep = self.image.bestRepresentation(for: NSRect(origin: .zero, size: self.image.size), context: nil, hints: nil) {
+            return CGSize(width: rep.pixelsWide, height: rep.pixelsHigh)
+        }
+        return self.image.size
+    }
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                // Background image
+                // Background image - use interpolation for sharp rendering
                 Image(nsImage: self.image)
+                    .interpolation(.high)
+                    .antialiased(true)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .background(

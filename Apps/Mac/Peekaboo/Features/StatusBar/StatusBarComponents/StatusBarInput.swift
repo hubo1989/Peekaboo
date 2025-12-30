@@ -13,7 +13,7 @@ struct StatusBarInputView: View {
 
     var body: some View {
         HStack(spacing: 10) {
-            TextField(self.isProcessing ? "Ask a follow‑up…" : "Ask Peekaboo…", text: self.$inputText)
+            TextField(self.isProcessing ? String(localized: "Ask a follow‑up…") : String(localized: "Ask Peekaboo…"), text: self.$inputText)
                 .textFieldStyle(.roundedBorder)
                 .focused(self.$isInputFocused)
                 .onSubmit(self.onSubmit)

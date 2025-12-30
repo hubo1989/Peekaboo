@@ -80,76 +80,76 @@ public struct ElementDetailsView: View {
 
     private var identificationSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Identification")
+            Text(String(localized: "Identification"))
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(.secondary)
 
-            InfoRow(label: "Role", value: self.element.role)
+            InfoRow(label: String(localized: "Role"), value: self.element.role)
             if let roleDesc = element.roleDescription {
-                InfoRow(label: "Role Description", value: roleDesc)
+                InfoRow(label: String(localized: "Role Description"), value: roleDesc)
             }
             if let identifier = element.identifier {
-                InfoRow(label: "Identifier", value: identifier)
+                InfoRow(label: String(localized: "Identifier"), value: identifier)
             }
             if let className = element.className {
-                InfoRow(label: "Class", value: className)
+                InfoRow(label: String(localized: "Class"), value: className)
             }
-            InfoRow(label: "App Bundle", value: self.element.appBundleID)
+            InfoRow(label: String(localized: "App Bundle"), value: self.element.appBundleID)
         }
     }
 
     private var contentSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Content")
+            Text(String(localized: "Content"))
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(.secondary)
 
             if let title = element.title {
-                InfoRow(label: "Title", value: title)
+                InfoRow(label: String(localized: "Title"), value: title)
             }
             if let label = element.label {
-                InfoRow(label: "Label", value: label)
+                InfoRow(label: String(localized: "Label"), value: label)
             }
             if let value = element.value {
-                InfoRow(label: "Value", value: value)
+                InfoRow(label: String(localized: "Value"), value: value)
             }
             if let help = element.help {
-                InfoRow(label: "Help", value: help)
+                InfoRow(label: String(localized: "Help"), value: help)
             }
             if let selectedText = element.selectedText {
-                InfoRow(label: "Selected Text", value: selectedText)
+                InfoRow(label: String(localized: "Selected Text"), value: selectedText)
             }
             if let charCount = element.numberOfCharacters {
-                InfoRow(label: "Character Count", value: "\(charCount)")
+                InfoRow(label: String(localized: "Character Count"), value: "\(charCount)")
             }
         }
     }
 
     private var propertiesSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Properties")
+            Text(String(localized: "Properties"))
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(.secondary)
 
             HStack(spacing: 16) {
                 PropertyBadge(
-                    label: "Enabled",
+                    label: String(localized: "Enabled"),
                     isActive: self.element.isEnabled,
                     activeColor: .green,
                     inactiveColor: .red)
 
                 PropertyBadge(
-                    label: "Focused",
+                    label: String(localized: "Focused"),
                     isActive: self.element.isFocused,
                     activeColor: .blue,
                     inactiveColor: .gray)
 
                 if self.element.isActionable {
                     PropertyBadge(
-                        label: "Actionable",
+                        label: String(localized: "Actionable"),
                         isActive: true,
                         activeColor: .purple,
                         inactiveColor: .gray)
@@ -160,14 +160,14 @@ public struct ElementDetailsView: View {
 
     private var frameSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Frame")
+            Text(String(localized: "Frame"))
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(.secondary)
 
             HStack(spacing: 16) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Position")
+                    Text(String(localized: "Position"))
                         .font(.caption)
                         .foregroundColor(.secondary)
                     Text("(\(Int(self.element.frame.origin.x)), \(Int(self.element.frame.origin.y)))")
@@ -175,7 +175,7 @@ public struct ElementDetailsView: View {
                 }
 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Size")
+                    Text(String(localized: "Size"))
                         .font(.caption)
                         .foregroundColor(.secondary)
                     Text("\(Int(self.element.frame.width)) × \(Int(self.element.frame.height))")
@@ -187,12 +187,12 @@ public struct ElementDetailsView: View {
 
     private var hierarchySection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Hierarchy")
+            Text(String(localized: "Hierarchy"))
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(.secondary)
 
-            Text("\(self.element.children.count) child element\(self.element.children.count == 1 ? "" : "s")")
+            Text(String(localized: "\(self.element.children.count) child elements"))
                 .font(.caption)
                 .foregroundColor(.secondary)
         }
@@ -200,19 +200,19 @@ public struct ElementDetailsView: View {
 
     private var actionsSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Actions")
+            Text(String(localized: "Actions"))
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(.secondary)
 
             HStack {
-                Button("Copy ID") {
+                Button(String(localized: "Copy ID")) {
                     NSPasteboard.general.clearContents()
                     NSPasteboard.general.setString(self.element.elementID, forType: .string)
                 }
                 .buttonStyle(.bordered)
 
-                Button("Copy Info") {
+                Button(String(localized: "Copy Info")) {
                     let info = self.generateElementInfo()
                     NSPasteboard.general.clearContents()
                     NSPasteboard.general.setString(info, forType: .string)
@@ -220,7 +220,7 @@ public struct ElementDetailsView: View {
                 .buttonStyle(.bordered)
 
                 if self.element.isActionable {
-                    Button("Simulate Click") {
+                    Button(String(localized: "Simulate Click")) {
                         // Would trigger click simulation
                     }
                     .buttonStyle(.borderedProminent)

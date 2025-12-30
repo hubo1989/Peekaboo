@@ -21,9 +21,6 @@ struct PeekabooApp: App {
 
     @State private var agent: PeekabooAgent?
 
-    // Control Inspector window creation
-    @AppStorage("inspectorWindowRequested") private var inspectorRequested = false
-
     // Logger
     private let logger = Logger(subsystem: "boo.peekaboo.app", category: "PeekabooApp")
 
@@ -52,7 +49,8 @@ struct PeekabooApp: App {
     var body: some Scene {
         // Hidden window to make Settings work in MenuBarExtra apps
         // This is a workaround for FB10184971
-        WindowGroup("HiddenWindow") {
+        // Using Window instead of WindowGroup to avoid multi-monitor layout crash
+        Window("HiddenWindow", id: "hiddenWindow") {
             HiddenWindowView()
                 .task {
                     self.services.installAgentRuntimeDefaults()
@@ -92,7 +90,7 @@ struct PeekabooApp: App {
         .windowResizability(.contentSize)
         .defaultSize(width: 1, height: 1)
         .windowStyle(.hiddenTitleBar)
-        .commandsRemoved() // Remove from File menu
+        .commandsRemoved()
 
         // Main window - Powerful debugging and development interface
         WindowGroup("Peekaboo Sessions", id: "main") {
@@ -125,13 +123,11 @@ struct PeekabooApp: App {
         .windowResizability(.automatic)
         .defaultSize(width: 900, height: 700)
 
-        // Inspector window
-        WindowGroup("Inspector", id: "inspector") {
-            InspectorWindowContainer(
-                inspectorRequested: self.inspectorRequested,
-                settings: self.settings,
-                permissions: self.permissions
-            )
+        // Inspector window - using Window to avoid multi-monitor layout crash
+        Window("Inspector", id: "inspector") {
+            InspectorWindow()
+                .environment(self.settings)
+                .environment(self.permissions)
         }
         .windowResizability(.contentSize)
         .defaultSize(width: 450, height: 700)
@@ -150,37 +146,6 @@ struct PeekabooApp: App {
                         self.logger.error("VisualizerCoordinator not initialized in AppDelegate")
                     }
                 }
-        }
-    }
-}
-
-// MARK: - Inspector Window Container
-
-/// Container view for Inspector window that handles delayed rendering to avoid
-/// multi-monitor layout crashes (same issue as HiddenWindowView).
-private struct InspectorWindowContainer: View {
-    let inspectorRequested: Bool
-    let settings: PeekabooSettings
-    let permissions: Permissions
-
-    @State private var isReady = false
-
-    var body: some View {
-        Group {
-            if self.inspectorRequested {
-                InspectorWindow()
-                    .environment(self.settings)
-                    .environment(self.permissions)
-            } else if self.isReady {
-                Color.clear
-                    .frame(width: 1, height: 1)
-            } else {
-                EmptyView()
-            }
-        }
-        .task {
-            try? await Task.sleep(for: .milliseconds(100))
-            self.isReady = true
         }
     }
 }
@@ -353,11 +318,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func showInspector() {
         self.logger.info("showInspector called")
-
-        // Mark that Inspector has been requested
-        UserDefaults.standard.set(true, forKey: "inspectorWindowRequested")
-
-        // Open the inspector window
         self.openWindow(id: "inspector")
     }
 
@@ -397,8 +357,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc private func handleShowInspector() {
         self.logger.info("Received ShowInspector notification")
-        // Mark that Inspector has been requested
-        UserDefaults.standard.set(true, forKey: "inspectorWindowRequested")
         self.showInspector()
     }
 

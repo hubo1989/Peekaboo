@@ -24,6 +24,18 @@ public struct AllElementsView: View {
         case containers = "Containers"
         case other = "Other"
 
+        var displayName: String {
+            switch self {
+            case .all: return String(localized: "All")
+            case .buttons: return String(localized: "Buttons")
+            case .textInputs: return String(localized: "Text Inputs")
+            case .links: return String(localized: "Links")
+            case .controls: return String(localized: "Controls")
+            case .containers: return String(localized: "Containers")
+            case .other: return String(localized: "Other")
+            }
+        }
+
         var icon: String {
             switch self {
             case .all: "square.grid.2x2"
@@ -68,12 +80,12 @@ public struct AllElementsView: View {
     private var headerSection: some View {
         VStack(spacing: 12) {
             HStack {
-                Text("All Elements")
+                Text(String(localized: "All Elements"))
                     .font(.headline)
 
                 Spacer()
 
-                Text("\(self.filteredElements.count) element\(self.filteredElements.count == 1 ? "" : "s")")
+                Text(String(localized: "\(self.filteredElements.count) elements"))
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
@@ -83,7 +95,7 @@ public struct AllElementsView: View {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.secondary)
 
-                TextField("Search elements...", text: self.$searchText)
+                TextField(String(localized: "Search elements..."), text: self.$searchText)
                     .textFieldStyle(.plain)
 
                 if !self.searchText.isEmpty {
@@ -103,7 +115,7 @@ public struct AllElementsView: View {
                 HStack(spacing: 8) {
                     ForEach(ElementFilterCategory.allCases, id: \.self) { category in
                         FilterChip(
-                            title: category.rawValue,
+                            title: category.displayName,
                             icon: category.icon,
                             isSelected: self.selectedCategory == category)
                         {
@@ -115,7 +127,7 @@ public struct AllElementsView: View {
                         .frame(height: 20)
 
                     FilterChip(
-                        title: "Actionable Only",
+                        title: String(localized: "Actionable Only"),
                         icon: "hand.tap",
                         isSelected: self.showOnlyActionable)
                     {
@@ -134,11 +146,11 @@ public struct AllElementsView: View {
                 .font(.system(size: 48))
                 .foregroundColor(.secondary)
 
-            Text("No elements found")
+            Text(String(localized: "No elements found"))
                 .font(.headline)
                 .foregroundColor(.secondary)
 
-            Text("Try adjusting your filters or hovering over different applications")
+            Text(String(localized: "Try adjusting your filters or hovering over different applications"))
                 .font(.caption)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)

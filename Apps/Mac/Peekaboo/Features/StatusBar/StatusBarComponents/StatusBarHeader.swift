@@ -23,7 +23,7 @@ struct StatusBarHeaderView: View {
                 .frame(width: 16, height: 16)
 
             VStack(alignment: .leading, spacing: 1) {
-                Text("Peekaboo")
+                Text(String(localized: "Peekaboo"))
                     .font(.headline)
 
                 Text(self.subtitleText)
@@ -42,40 +42,40 @@ struct StatusBarHeaderView: View {
                         .foregroundStyle(.red)
                 }
                 .buttonStyle(.borderless)
-                .help("Cancel")
+                .help(String(localized: "Cancel"))
             }
 
             Menu {
-                Button("Open Peekaboo") { self.onOpenMainWindow() }
-                Button("New Session") { self.onNewSession() }
+                Button(String(localized: "Open Peekaboo")) { self.onOpenMainWindow() }
+                Button(String(localized: "New Session")) { self.onNewSession() }
 
                 Divider()
 
-                Button("Inspector") { self.onOpenInspector() }
-                Button("Settings…") { self.onOpenSettings() }
+                Button(String(localized: "Inspector")) { self.onOpenInspector() }
+                Button(String(localized: "Settings…")) { self.onOpenSettings() }
 
                 Divider()
 
-                Button("About Peekaboo") { NSApp.orderFrontStandardAboutPanel(nil) }
-                Button("Quit Peekaboo") { NSApp.terminate(nil) }
+                Button(String(localized: "About Peekaboo")) { NSApp.orderFrontStandardAboutPanel(nil) }
+                Button(String(localized: "Quit Peekaboo")) { NSApp.terminate(nil) }
             } label: {
                 Image(systemName: "ellipsis.circle")
                     .foregroundStyle(.secondary)
             }
             .menuStyle(.borderlessButton)
-            .help("Menu")
+            .help(String(localized: "Menu"))
         }
     }
 
     private var subtitleText: String {
         if self.agent.isProcessing {
-            return "Working…"
+            return String(localized: "Working…")
         }
 
         if let session = self.sessionStore.currentSession {
             return session.title
         }
 
-        return "Ready"
+        return String(localized: "Ready")
     }
 }

@@ -174,7 +174,7 @@ struct AnnotationToolbar: View {
                             .fill(Color.primary)
                             .frame(width: 40, height: width)
 
-                        Text("\(Int(width))px")
+                        Text("\(Int(width))px", comment: "Stroke width in pixels")
                             .font(.caption)
                             .foregroundColor(.secondary)
 

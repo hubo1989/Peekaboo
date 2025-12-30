@@ -57,7 +57,7 @@ public struct InspectorView: View {
             if self.permissionStatus == .denied {
                 PermissionDeniedView()
             } else if self.permissionStatus == .checking {
-                ProgressView("Checking permissions...")
+                ProgressView(String(localized: "Checking permissions..."))
                     .padding()
             } else {
                 self.mainContent
@@ -80,7 +80,7 @@ public struct InspectorView: View {
         VStack(spacing: 0) {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Peekaboo Inspector")
+                    Text(String(localized: "Peekaboo Inspector"))
                         .font(.headline)
                     Text(self.overlayStatusText)
                         .font(.caption)
@@ -89,7 +89,7 @@ public struct InspectorView: View {
 
                 Spacer()
 
-                Toggle("Overlay", isOn: self.$overlayManager.isOverlayActive)
+                Toggle(String(localized: "Overlay"), isOn: self.$overlayManager.isOverlayActive)
                     .toggleStyle(.switch)
             }
             .padding()
@@ -107,7 +107,7 @@ public struct InspectorView: View {
                 if let hoveredElement = overlayManager.hoveredElement {
                     ElementDetailsView(element: hoveredElement)
                 } else {
-                    Text("Hover over an element to see details")
+                    Text(String(localized: "Hover over an element to see details"))
                         .foregroundColor(.secondary)
                         .frame(maxWidth: .infinity)
                         .padding()
@@ -145,12 +145,11 @@ public struct InspectorView: View {
 
     private var overlayStatusText: String {
         guard !self.overlayManager.applications.isEmpty else {
-            return "Hover over UI elements to inspect"
+            return String(localized: "Hover over UI elements to inspect")
         }
 
         let count = self.overlayManager.applications.count
-        let suffix = count == 1 ? "" : "s"
-        return "Monitoring \(count) app\(suffix)"
+        return String(localized: "Monitoring \(count) apps")
     }
 
     private func startPermissionMonitoring() {

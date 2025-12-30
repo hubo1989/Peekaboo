@@ -19,24 +19,24 @@ public struct AppSelectorView: View {
     public var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Text("Target Applications")
+                Text(String(localized: "Target Applications"))
                     .font(.subheadline)
                     .fontWeight(.medium)
 
                 Spacer()
 
-                Menu("Detail Level") {
-                    Button("Essential (Buttons & Inputs)") {
+                Menu(String(localized: "Detail Level")) {
+                    Button(String(localized: "Essential (Buttons & Inputs)")) {
                         self.overlayManager.setDetailLevel(.essential)
                     }
                     .disabled(self.overlayManager.detailLevel == .essential)
 
-                    Button("Moderate (Include Lists & Tables)") {
+                    Button(String(localized: "Moderate (Include Lists & Tables)")) {
                         self.overlayManager.setDetailLevel(.moderate)
                     }
                     .disabled(self.overlayManager.detailLevel == .moderate)
 
-                    Button("All (Show Everything)") {
+                    Button(String(localized: "All (Show Everything)")) {
                         self.overlayManager.setDetailLevel(.all)
                     }
                     .disabled(self.overlayManager.detailLevel == .all)
@@ -45,7 +45,7 @@ public struct AppSelectorView: View {
                 .padding(.trailing, 8)
 
                 Menu {
-                    Button("All Applications") {
+                    Button(String(localized: "All Applications")) {
                         self.overlayManager.setAppSelectionMode(.all)
                     }
                     .disabled(self.overlayManager.selectedAppMode == .all)
@@ -72,7 +72,7 @@ public struct AppSelectorView: View {
                     HStack {
                         if self.overlayManager.selectedAppMode == .all {
                             Image(systemName: "apps.iphone")
-                            Text("All Applications")
+                            Text(String(localized: "All Applications"))
                         } else if let selectedID = overlayManager.selectedAppBundleID,
                                   let app = overlayManager.applications
                                       .first(where: { $0.bundleIdentifier == selectedID })
@@ -96,11 +96,11 @@ public struct AppSelectorView: View {
             }
 
             if self.overlayManager.selectedAppMode == .single {
-                Text("Inspecting single application")
+                Text(String(localized: "Inspecting single application"))
                     .font(.caption)
                     .foregroundColor(.secondary)
             } else {
-                Text("Inspecting all running applications")
+                Text(String(localized: "Inspecting all running applications"))
                     .font(.caption)
                     .foregroundColor(.secondary)
             }

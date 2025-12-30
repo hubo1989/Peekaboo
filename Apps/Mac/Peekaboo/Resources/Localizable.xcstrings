@@ -1,1183 +1,2021 @@
 {
-  "sourceLanguage" : "zh-Hans",
-  "strings" : {
-    "" : {
-
-    },
-    "." : {
-
-    },
-    "(1 - 128,000)" : {
-
-    },
-    "{env:OPENROUTER_API_KEY}" : {
-
-    },
-    "%@ %@" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ %2$@"
+  "sourceLanguage": "zh-Hans",
+  "strings": {
+    "": {},
+    ".": {},
+    "(1 - 128,000)": {},
+    "{env:OPENROUTER_API_KEY}": {},
+    "%@ %@": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ %2$@"
           }
         }
       }
     },
-    "%@ API Key" : {
-
-    },
-    "%lld" : {
-
-    },
-    "%lld × %lld" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld × %2$lld"
+    "%@ API Key": {},
+    "%lld": {},
+    "%lld × %lld": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld × %2$lld"
           }
         }
       }
     },
-    "%lld items" : {
-
-    },
-    "%lld messages" : {
-
-    },
-    "%lld steps" : {
-
-    },
-    "%lld tools" : {
-
-    },
-    "%lld." : {
-
-    },
-    "%lld×%lld" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld×%2$lld"
+    "%lld items": {},
+    "%lld messages": {},
+    "%lld steps": {},
+    "%lld tools": {},
+    "%lld.": {},
+    "%lld×%lld": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld×%2$lld"
           }
         }
       }
     },
-    "%lldpx" : {
-
+    "%lldpx": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldpx"
+          }
+        }
+      }
     },
-    "•" : {
-
+    "•": {},
+    "• Avoid common system shortcuts like ⌘Space or ⌘Tab": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "• 避免使用常见的系统快捷键，如 ⌘Space 或 ⌘Tab"
+          }
+        }
+      }
     },
-    "• Avoid common system shortcuts like ⌘Space or ⌘Tab" : {
-
+    "• Changes take effect immediately without restart": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "• 更改将立即生效，无需重启"
+          }
+        }
+      }
     },
-    "• Changes take effect immediately without restart" : {
-
+    "• Shortcuts must include at least one modifier key (⌘, ⌥, ⌃, or ⇧)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "• 快捷键必须包含至少一个修饰键 (⌘, ⌥, ⌃, 或 ⇧)"
+          }
+        }
+      }
     },
-    "• Shortcuts must include at least one modifier key (⌘, ⌥, ⌃, or ⇧)" : {
-
+    "© 2025 Peter Steinberger. MIT License.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "© 2025 Peter Steinberger. MIT 许可证。"
+          }
+        }
+      }
     },
-    "© 2025 Peter Steinberger. MIT License." : {
-
-    },
-    "→" : {
-
-    },
-    "⚡ Automation Expert" : {
-
-    },
-    "👻 General Assistant" : {
-
-    },
-    "🔍" : {
-
-    },
-    "🔍 Debugging Helper" : {
-
-    },
-    "🧑‍[sh] Swift Developer" : {
-
-    },
-    "10x" : {
-
-    },
-    "About" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "About"
+    "→": {},
+    "⚡ Automation Expert": {},
+    "👻 General Assistant": {},
+    "🔍": {},
+    "🔍 Debugging Helper": {},
+    "🧑‍[sh] Swift Developer": {},
+    "10x": {},
+    "About": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "About"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "关于"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关于"
           }
         }
       }
     },
-    "About Peekaboo" : {
-
-    },
-    "Access to 300+ models" : {
-
-    },
-    "Accessibility" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "辅助功能"
+    "About Peekaboo": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关于 Peekaboo"
           }
         }
       }
     },
-    "Add Provider" : {
-
-    },
-    "Additional headers in key:value,key:value format" : {
-
-    },
-    "Advanced Settings" : {
-
-    },
-    "Agent Activity" : {
-
-    },
-    "AI" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI"
+    "Access to 300+ models": {},
+    "Accessibility": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "辅助功能"
           }
         }
       }
     },
-    "AI Assistant" : {
-
-    },
-    "AI Assistant for Session" : {
-
-    },
-    "AI is typing..." : {
-
-    },
-    "AI Model" : {
-
-    },
-    "Animation Settings" : {
-
-    },
-    "Animation Speed" : {
-
-    },
-    "Animation Speed: %@" : {
-
-    },
-    "Animation Types" : {
-
-    },
-    "Anthropic Configuration" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anthropic 配置"
+    "Add Provider": {},
+    "Additional headers in key:value,key:value format": {},
+    "Advanced Settings": {},
+    "Agent Activity": {},
+    "AI": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI"
           }
         }
       }
     },
-    "API endpoint URL for this provider" : {
-
-    },
-    "API Key" : {
-
-    },
-    "API key configured" : {
-
-    },
-    "App Shortcuts" : {
-
-    },
-    "Are you sure you want to delete '%@'? This action cannot be undone." : {
-
-    },
-    "Arguments" : {
-
-    },
-    "Arguments:" : {
-
-    },
-    "Ask a follow‑up…" : {
-
-    },
-    "Ask me to do something..." : {
-
-    },
-    "Ask Peekaboo something to get started." : {
-
-    },
-    "Ask Peekaboo…" : {
-
-    },
-    "Assistant Voice" : {
-
-    },
-    "Automation (AppleScript)" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自动化 (AppleScript)"
+    "AI Assistant": {},
+    "AI Assistant for Session": {},
+    "AI is typing...": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI 正在输入..."
           }
         }
       }
     },
-    "Available Peekaboo Tools" : {
-
-    },
-    "Base URL" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "基础 URL"
+    "AI Model": {},
+    "Animation Settings": {},
+    "Animation Speed": {},
+    "Animation Speed: %@": {},
+    "Animation Types": {},
+    "Anthropic Configuration": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anthropic 配置"
           }
         }
       }
     },
-    "Basic Information" : {
-
-    },
-    "Brief description of this provider" : {
-
-    },
-    "Cancel" : {
-
-    },
-    "Cancel (ESC)" : {
-
-    },
-    "Cancel current task" : {
-
-    },
-    "Cancelled" : {
-
-    },
-    "Capture screenshots and see on-screen context" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "截取屏幕截图并查看屏幕上下文"
+    "API endpoint URL for this provider": {},
+    "API Key": {},
+    "API key configured": {},
+    "App Shortcuts": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "应用快捷键"
           }
         }
       }
     },
-    "Category" : {
-
-    },
-    "Check for updates automatically" : {
-
-    },
-    "Check for Updates…" : {
-
-    },
-    "Check Permissions" : {
-
-    },
-    "Claude Sonnet 4.5" : {
-
-    },
-    "Clear" : {
-
-    },
-    "Click \"Done\" to save or \"Cancel\" to abort" : {
-
-    },
-    "Click \"Record\" next to any shortcut" : {
-
-    },
-    "Click to inspect" : {
-
-    },
-    "Click to inspect image" : {
-
-    },
-    "Close" : {
-
-    },
-    "Color" : {
-
-    },
-    "Configuration" : {
-
-    },
-    "Configure" : {
-
-    },
-    "Connected" : {
-
-    },
-    "Connecting..." : {
-
-    },
-    "Connection Error" : {
-
-    },
-    "Connection Failed" : {
-
-    },
-    "Connection lost. Messages will be queued." : {
-
-    },
-    "Connection Successful" : {
-
-    },
-    "Continue" : {
-
-    },
-    "Control apps via Apple Events (optional)" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "通过 Apple Events 控制应用（可选）"
+    "Are you sure you want to delete '%@'? This action cannot be undone.": {},
+    "Arguments": {},
+    "Arguments:": {},
+    "Ask a follow‑up…": {},
+    "Ask me to do something...": {},
+    "Ask Peekaboo something to get started.": {},
+    "Ask Peekaboo…": {},
+    "Assistant Voice": {},
+    "Automation (AppleScript)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自动化 (AppleScript)"
           }
         }
       }
     },
-    "Control UI elements, mouse, and keyboard" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "控制 UI 元素、鼠标和键盘"
+    "Available Peekaboo Tools": {},
+    "Base URL": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "基础 URL"
           }
         }
       }
     },
-    "Conversation History" : {
-
-    },
-    "Copy to Clipboard (⌘C)" : {
-
-    },
-    "Current Session" : {
-
-    },
-    "Custom" : {
-
-    },
-    "Custom Instructions (Optional)" : {
-
-    },
-    "Custom instructions for the AI assistant" : {
-
-    },
-    "Custom Provider" : {
-
-    },
-    "Custom Providers" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自定义提供商"
+    "Basic Information": {},
+    "Brief description of this provider": {},
+    "Cancel": {},
+    "Cancel (ESC)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消 (ESC)"
           }
         }
       }
     },
-    "Customize global keyboard shortcuts for quick access" : {
-
-    },
-    "Debug" : {
-
-    },
-    "Delete" : {
-
-    },
-    "Delete Provider" : {
-
-    },
-    "Delete session" : {
-
-    },
-    "Delightful animations for all Peekaboo operations" : {
-
-    },
-    "Description" : {
-
-    },
-    "Details" : {
-
-    },
-    "Disconnected" : {
-
-    },
-    "Display name for the model" : {
-
-    },
-    "Done" : {
-
-    },
-    "Duplicate" : {
-
-    },
-    "Easter Eggs" : {
-
-    },
-    "Edit" : {
-
-    },
-    "Edit Custom Provider" : {
-
-    },
-    "Effect Intensity" : {
-
-    },
-    "Enable agent mode" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "启用智能体模式"
+    "Cancel current task": {},
+    "Cancelled": {},
+    "Capture screenshots and see on-screen context": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "截取屏幕截图并查看屏幕上下文"
           }
         }
       }
     },
-    "Enable haptic feedback" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "启用触觉反馈"
+    "Category": {},
+    "Check for updates automatically": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自动检查更新"
           }
         }
       }
     },
-    "Enable sound effects" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "启用音效"
+    "Check for Updates…": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "检查更新…"
           }
         }
       }
     },
-    "End Session" : {
-
-    },
-    "Ensure Ollama is running locally" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "确保 Ollama 在本地运行"
+    "Check Permissions": {},
+    "Claude Sonnet 4.5": {},
+    "Clear": {},
+    "Click \"Done\" to save or \"Cancel\" to abort": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点击“完成”保存或“取消”中止"
           }
         }
       }
     },
-    "Enter API key to override environment variable" : {
-
-    },
-    "Enter text..." : {
-
-    },
-    "Error" : {
-
-    },
-    "Executing tools..." : {
-
-    },
-    "Export..." : {
-
-    },
-    "Features" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "功能"
+    "Click \"Record\" next to any shortcut": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点击任何快捷键旁边的“录制”"
           }
         }
       }
     },
-    "Found in environment" : {
-
-    },
-    "Friendly name shown in the UI" : {
-
-    },
-    "General" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "通用"
+    "Click to inspect": {},
+    "Click to inspect image": {},
+    "Close": {},
+    "Color": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "颜色"
           }
         }
       }
     },
-    "Generating..." : {
-
-    },
-    "Get your OpenAI API key" : {
-
-    },
-    "gpt-4o, claude-3-opus, etc." : {
-
-    },
-    "GPT-5.1" : {
-
-    },
-    "Grant" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "授权"
+    "Configuration": {},
+    "Configure": {},
+    "Connected": {},
+    "Connecting...": {},
+    "Connection Error": {},
+    "Connection Failed": {},
+    "Connection lost. Messages will be queued.": {},
+    "Connection Successful": {},
+    "Continue": {},
+    "Control apps via Apple Events (optional)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "通过 Apple Events 控制应用（可选）"
           }
         }
       }
     },
-    "Grant required permissions so Peekaboo can capture and automate reliably." : {
-
-    },
-    "Grant Screen Recording + Accessibility. Automation is optional for some workflows." : {
-
-    },
-    "Grant the required items once; you can revisit this anytime in Settings → Permissions." : {
-
-    },
-    "Granted" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已授权"
+    "Control UI elements, mouse, and keyboard": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "控制 UI 元素、鼠标和键盘"
           }
         }
       }
     },
-    "Have a natural conversation with Peekaboo" : {
-
-    },
-    "Headers" : {
-
-    },
-    "Hi! I'm Peekaboo" : {
-
-    },
-    "HiddenWindow" : {
-
-    },
-    "Hide" : {
-
-    },
-    "Hide details" : {
-
-    },
-    "How to record shortcuts:" : {
-
-    },
-    "http://localhost:11434" : {
-
-    },
-    "https://openrouter.ai/api/v1" : {
-
-    },
-    "I can help you automate tasks on your Mac" : {
-
-    },
-    "Image Inspector" : {
-
-    },
-    "Inspector" : {
-
-    },
-    "Instructions" : {
-
-    },
-    "Interrupt" : {
-
-    },
-    "Keep window on top" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "保持窗口置顶"
+    "Conversation History": {},
+    "Copy to Clipboard (⌘C)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "复制到剪贴板 (⌘C)"
           }
         }
       }
     },
-    "key:value,key:value" : {
-
-    },
-    "Keyboard Shortcuts" : {
-
-    },
-    "Keyboard Theme" : {
-
-    },
-    "Launch at login" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "登录时启动"
+    "Current Session": {},
+    "Custom": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自定义"
           }
         }
       }
     },
-    "Leave empty to continue using environment variable" : {
-
-    },
-    "Less" : {
-
-    },
-    "Listening..." : {
-
-    },
-    "Max Tokens" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最大 Token 数"
+    "Custom Instructions (Optional)": {},
+    "Custom instructions for the AI assistant": {},
+    "Custom Provider": {},
+    "Custom Providers": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自定义提供商"
           }
         }
       }
     },
-    "Menu" : {
-
-    },
-    "Menu bar companion for Peekaboo CLI permissions + automation." : {
-
-    },
-    "Model" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "模型"
+    "Customize global keyboard shortcuts for quick access": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自定义全局键盘快捷键以实现快速访问"
           }
         }
       }
     },
-    "Model ID" : {
-
-    },
-    "Model Name" : {
-
-    },
-    "Model Selection" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "模型选择"
+    "Debug": {},
+    "Delete": {},
+    "Delete Provider": {},
+    "Delete session": {},
+    "Delightful animations for all Peekaboo operations": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "为所有 Peekaboo 操作提供精美的动画"
           }
         }
       }
     },
-    "More" : {
-
-    },
-    "Name" : {
-
-    },
-    "New Session" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "新会话"
+    "Description": {},
+    "Details": {},
+    "Disconnected": {},
+    "Display name for the model": {},
+    "Done": {},
+    "Duplicate": {},
+    "Easter Eggs": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "彩蛋"
           }
         }
       }
     },
-    "No Custom Providers" : {
-
-    },
-    "No Session Selected" : {
-
-    },
-    "No sessions yet" : {
-
-    },
-    "Not Connected" : {
-
-    },
-    "OK" : {
-
-    },
-    "Ollama Configuration" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ollama 配置"
+    "Edit": {},
+    "Edit Custom Provider": {},
+    "Effect Intensity": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "效果强度"
           }
         }
       }
     },
-    "Open in main window" : {
-
-    },
-    "Open OpenAI Platform" : {
-
-    },
-    "Open Peekaboo" : {
-
-    },
-    "Open Settings" : {
-
-    },
-    "Open Settings → Permissions" : {
-
-    },
-    "OpenAI Configuration" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OpenAI 配置"
+    "Enable agent mode": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "启用智能体模式"
           }
         }
       }
     },
-    "OpenRouter" : {
-
-    },
-    "Optional" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "可选"
+    "Enable haptic feedback": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "启用触觉反馈"
           }
         }
       }
     },
-    "Optional: Friendly name shown in the UI" : {
-
-    },
-    "Override" : {
-
-    },
-    "Overriding environment variable %@" : {
-
-    },
-    "Parameters" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "参数"
+    "Enable sound effects": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "启用音效"
           }
         }
       }
     },
-    "Peekaboo" : {
-
-    },
-    "Peekaboo needs microphone access to use voice control. Please enable it in System Settings." : {
-
-    },
-    "Peekaboo Sessions" : {
-
-    },
-    "Performance Metrics" : {
-
-    },
-    "Permissions" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "权限"
+    "End Session": {},
+    "Ensure Ollama is running locally": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "确保 Ollama 在本地运行"
           }
         }
       }
     },
-    "Permissions checklist" : {
-
-    },
-    "Pin to Desktop" : {
-
-    },
-    "Pixel Grid" : {
-
-    },
-    "Popular Providers" : {
-
-    },
-    "Press your desired key combination" : {
-
-    },
-    "Preview %@ animation" : {
-
-    },
-    "Processing..." : {
-
-    },
-    "Provider ID" : {
-
-    },
-    "Provider Type" : {
-
-    },
-    "Quick Templates" : {
-
-    },
-    "Quit Peekaboo" : {
-
-    },
-    "Realtime Settings" : {
-
-    },
-    "Realtime Voice Assistant" : {
-
-    },
-    "Recent" : {
-
-    },
-    "Recognition Mode" : {
-
-    },
-    "Recognition:" : {
-
-    },
-    "Record" : {
-
-    },
-    "Recording Permission Required" : {
-
-    },
-    "Redo (⌘⇧Z)" : {
-
-    },
-    "Refresh" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "刷新"
+    "Enter API key to override environment variable": {},
+    "Enter text...": {},
+    "Error": {},
+    "Executing tools...": {},
+    "Export...": {},
+    "Features": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "功能"
           }
         }
       }
     },
-    "Refresh status" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "刷新状态"
+    "Found in environment": {},
+    "Friendly name shown in the UI": {},
+    "General": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "通用"
           }
         }
       }
     },
-    "Result" : {
-
-    },
-    "Result:" : {
-
-    },
-    "Retry" : {
-
-    },
-    "Retry task" : {
-
-    },
-    "Retry the failed task" : {
-
-    },
-    "Save" : {
-
-    },
-    "Save to File (⌘S)" : {
-
-    },
-    "Screen Recording" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "屏幕录制"
+    "Generating...": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在生成..."
           }
         }
       }
     },
-    "Screenshot Shortcuts" : {
-
-    },
-    "Search sessions..." : {
-
-    },
-    "Select" : {
-
-    },
-    "Select a session from the sidebar or create a new one" : {
-
-    },
-    "Send to Agent" : {
-
-    },
-    "Send to AI" : {
-
-    },
-    "Session is empty." : {
-
-    },
-    "Session not found" : {
-
-    },
-    "Sessions" : {
-
-    },
-    "Settings" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "设置"
+    "Get your OpenAI API key": {},
+    "gpt-4o, claude-3-opus, etc.": {},
+    "GPT-5.1": {},
+    "Grant": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "授权"
           }
         }
       }
     },
-    "Settings…" : {
-
-    },
-    "Shortcuts" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "快捷键"
+    "Grant required permissions so Peekaboo can capture and automate reliably.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "授予所需权限，以便 Peekaboo 能够可靠地进行捕获和自动化。"
           }
         }
       }
     },
-    "Show details" : {
-
-    },
-    "Show in Dock" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在 Dock 中显示"
+    "Grant Screen Recording + Accessibility. Automation is optional for some workflows.": {},
+    "Grant the required items once; you can revisit this anytime in Settings → Permissions.": {},
+    "Granted": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已授权"
           }
         }
       }
     },
-    "Show onboarding" : {
-
-    },
-    "Show Performance" : {
-
-    },
-    "Show permissions onboarding" : {
-
-    },
-    "Show sessions" : {
-
-    },
-    "sk-..." : {
-
-    },
-    "Slowest Animations:" : {
-
-    },
-    "Sound Effects" : {
-
-    },
-    "Speak to control your agent" : {
-
-    },
-    "Start Conversation" : {
-
-    },
-    "Stop" : {
-
-    },
-    "Stroke Width" : {
-
-    },
-    "Switch to text input" : {
-
-    },
-    "Switch to voice input" : {
-
-    },
-    "System Prompt" : {
-
-    },
-    "Tap to start" : {
-
-    },
-    "Temperature" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "温度"
+    "Have a natural conversation with Peekaboo": {},
+    "Headers": {},
+    "Hi! I'm Peekaboo": {},
+    "HiddenWindow": {},
+    "Hide": {},
+    "Hide details": {},
+    "How to record shortcuts:": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "如何录制快捷键："
           }
         }
       }
     },
-    "Test" : {
-
-    },
-    "Test all animation components" : {
-
-    },
-    "Test Connection" : {
-
-    },
-    "Testing Connection" : {
-
-    },
-    "Testing connection..." : {
-
-    },
-    "The Model ID is sent to the API. Model Name is shown in the UI." : {
-
-    },
-    "The model identifier sent to the API" : {
-
-    },
-    "Thinking" : {
-
-    },
-    "Tips:" : {
-
-    },
-    "Tool Execution Progress" : {
-
-    },
-    "Tools Used in Session" : {
-
-    },
-    "Type" : {
-
-    },
-    "Type your message..." : {
-
-    },
-    "Undo (⌘Z)" : {
-
-    },
-    "Unique identifier for this provider" : {
-
-    },
-    "Updates unavailable in this build." : {
-
-    },
-    "Use \"Clear\" to remove a shortcut entirely" : {
-
-    },
-    "Use custom model for vision tasks" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "为视觉任务使用自定义模型"
+    "http://localhost:11434": {},
+    "https://openrouter.ai/api/v1": {},
+    "I can help you automate tasks on your Mac": {},
+    "Image Inspector": {},
+    "Inspector": {},
+    "Instructions": {},
+    "Interrupt": {},
+    "Keep window on top": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保持窗口置顶"
           }
         }
       }
     },
-    "Use Environment" : {
-
-    },
-    "Use Voice Activity Detection (VAD)" : {
-
-    },
-    "Using key from %@" : {
-
-    },
-    "VAD automatically detects when you start and stop speaking" : {
-
-    },
-    "Verifying your provider configuration..." : {
-
-    },
-    "Version %@" : {
-
-    },
-    "Vision Model" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "视觉模型"
+    "key:value,key:value": {},
+    "Keyboard Shortcuts": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "键盘快捷键"
           }
         }
       }
     },
-    "Vision Model Override" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "视觉模型覆盖"
+    "Keyboard Theme": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "键盘主题"
           }
         }
       }
     },
-    "Visual Feedback" : {
-
-    },
-    "Visualizer" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "可视化器"
+    "Launch at login": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "登录时启动"
           }
         }
       }
     },
-    "Visualizer Test Suite" : {
-
+    "Leave empty to continue using environment variable": {},
+    "Less": {},
+    "Listening...": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在倾听..."
+          }
+        }
+      }
     },
-    "Voice" : {
-
+    "Max Tokens": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最大 Token 数"
+          }
+        }
+      }
     },
-    "Voice changes will take effect in the next conversation" : {
-
+    "Menu": {},
+    "Menu bar companion for Peekaboo CLI permissions + automation.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Peekaboo CLI 权限与自动化的菜单栏伴侣。"
+          }
+        }
+      }
     },
-    "Voice Control" : {
-
+    "Model": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "模型"
+          }
+        }
+      }
     },
-    "Voice Detection" : {
-
+    "Model ID": {},
+    "Model Name": {},
+    "Model Selection": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "模型选择"
+          }
+        }
+      }
     },
-    "Voice Selection" : {
-
+    "More": {},
+    "Name": {},
+    "New Session": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新会话"
+          }
+        }
+      }
     },
-    "Watch Capture" : {
-
+    "No Custom Providers": {},
+    "No Session Selected": {},
+    "No sessions yet": {},
+    "Not Connected": {},
+    "OK": {},
+    "Ollama Configuration": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ollama 配置"
+          }
+        }
+      }
     },
-    "Welcome to Peekaboo!" : {
-
+    "Open in main window": {},
+    "Open OpenAI Platform": {},
+    "Open Peekaboo": {},
+    "Open Settings": {},
+    "Open Settings → Permissions": {},
+    "OpenAI Configuration": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenAI 配置"
+          }
+        }
+      }
     },
-    "Your AI-powered Mac automation assistant" : {
-
+    "OpenRouter": {},
+    "Optional": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可选"
+          }
+        }
+      }
     },
-    "Your API key is stored securely in the macOS Keychain" : {
-
+    "Optional: Friendly name shown in the UI": {},
+    "Override": {},
+    "Overriding environment variable %@": {},
+    "Parameters": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "参数"
+          }
+        }
+      }
     },
-    "Your API key or environment variable reference" : {
-
+    "Peekaboo": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Peekaboo"
+          }
+        }
+      }
+    },
+    "Peekaboo needs microphone access to use voice control. Please enable it in System Settings.": {},
+    "Peekaboo Sessions": {},
+    "Performance Metrics": {},
+    "Permissions": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "权限"
+          }
+        }
+      }
+    },
+    "Permissions checklist": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "权限检查清单"
+          }
+        }
+      }
+    },
+    "Pin to Desktop": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "固定到桌面"
+          }
+        }
+      }
+    },
+    "Pixel Grid": {},
+    "Popular Providers": {},
+    "Press your desired key combination": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按下您想要的按键组合"
+          }
+        }
+      }
+    },
+    "Preview %@ animation": {},
+    "Processing...": {},
+    "Provider ID": {},
+    "Provider Type": {},
+    "Quick Templates": {},
+    "Quit Peekaboo": {},
+    "Realtime Settings": {},
+    "Realtime Voice Assistant": {},
+    "Recent": {},
+    "Recognition Mode": {},
+    "Recognition:": {},
+    "Record": {},
+    "Recording Permission Required": {},
+    "Redo (⌘⇧Z)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重做 (⌘⇧Z)"
+          }
+        }
+      }
+    },
+    "Refresh": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "刷新"
+          }
+        }
+      }
+    },
+    "Refresh status": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "刷新状态"
+          }
+        }
+      }
+    },
+    "Result": {},
+    "Result:": {},
+    "Retry": {},
+    "Retry task": {},
+    "Retry the failed task": {},
+    "Save": {},
+    "Save to File (⌘S)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存到文件 (⌘S)"
+          }
+        }
+      }
+    },
+    "Screen Recording": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "屏幕录制"
+          }
+        }
+      }
+    },
+    "Screenshot Shortcuts": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "截图快捷键"
+          }
+        }
+      }
+    },
+    "Search sessions...": {},
+    "Select": {},
+    "Select a session from the sidebar or create a new one": {},
+    "Send to Agent": {},
+    "Send to AI": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "发送到 AI"
+          }
+        }
+      }
+    },
+    "Session is empty.": {},
+    "Session not found": {},
+    "Sessions": {},
+    "Settings": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设置"
+          }
+        }
+      }
+    },
+    "Settings…": {},
+    "Shortcuts": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "快捷键"
+          }
+        }
+      }
+    },
+    "Show details": {},
+    "Show in Dock": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在 Dock 中显示"
+          }
+        }
+      }
+    },
+    "Show onboarding": {},
+    "Show Performance": {},
+    "Show permissions onboarding": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示权限引导"
+          }
+        }
+      }
+    },
+    "Show sessions": {},
+    "sk-...": {},
+    "Slowest Animations:": {},
+    "Sound Effects": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "音效"
+          }
+        }
+      }
+    },
+    "Speak to control your agent": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "说话以控制智能体"
+          }
+        }
+      }
+    },
+    "Start Conversation": {},
+    "Stop": {},
+    "Stroke Width": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "线条粗细"
+          }
+        }
+      }
+    },
+    "Switch to text input": {},
+    "Switch to voice input": {},
+    "System Prompt": {},
+    "Tap to start": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点击开始"
+          }
+        }
+      }
+    },
+    "Temperature": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "温度"
+          }
+        }
+      }
+    },
+    "Test": {},
+    "Test all animation components": {},
+    "Test Connection": {},
+    "Testing Connection": {},
+    "Testing connection...": {},
+    "The Model ID is sent to the API. Model Name is shown in the UI.": {},
+    "The model identifier sent to the API": {},
+    "Thinking": {},
+    "Tips:": {},
+    "Tool Execution Progress": {},
+    "Tools Used in Session": {},
+    "Type": {},
+    "Type your message...": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "输入消息..."
+          }
+        }
+      }
+    },
+    "Undo (⌘Z)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撤销 (⌘Z)"
+          }
+        }
+      }
+    },
+    "Unique identifier for this provider": {},
+    "Updates unavailable in this build.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此版本无法使用更新。"
+          }
+        }
+      }
+    },
+    "Use \"Clear\" to remove a shortcut entirely": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用“清除”完全移除快捷键"
+          }
+        }
+      }
+    },
+    "Use custom model for vision tasks": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "为视觉任务使用自定义模型"
+          }
+        }
+      }
+    },
+    "Use Environment": {},
+    "Use Voice Activity Detection (VAD)": {},
+    "Using key from %@": {},
+    "VAD automatically detects when you start and stop speaking": {},
+    "Verifying your provider configuration...": {},
+    "Version %@": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "版本 %@"
+          }
+        }
+      }
+    },
+    "Vision Model": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "视觉模型"
+          }
+        }
+      }
+    },
+    "Vision Model Override": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "视觉模型覆盖"
+          }
+        }
+      }
+    },
+    "Visual Feedback": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "视觉反馈"
+          }
+        }
+      }
+    },
+    "Visualizer": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可视化器"
+          }
+        }
+      }
+    },
+    "Visualizer Test Suite": {},
+    "Voice": {},
+    "Voice changes will take effect in the next conversation": {},
+    "Voice Control": {},
+    "Voice Detection": {},
+    "Voice Selection": {},
+    "Watch Capture": {},
+    "Welcome to Peekaboo!": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "欢迎使用 Peekaboo!"
+          }
+        }
+      }
+    },
+    "Your AI-powered Mac automation assistant": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的 AI 驱动 Mac 自动化助手"
+          }
+        }
+      }
+    },
+    "Your API key is stored securely in the macOS Keychain": {},
+    "Your API key or environment variable reference": {},
+    "Toggle Popover": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "切换弹出视图"
+          }
+        }
+      }
+    },
+    "Show Main Window": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示主窗口"
+          }
+        }
+      }
+    },
+    "Show Inspector": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示检查器"
+          }
+        }
+      }
+    },
+    "Capture Area": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "区域截图"
+          }
+        }
+      }
+    },
+    "Capture Screen": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全屏截图"
+          }
+        }
+      }
+    },
+    "Capture Window": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "窗口截图"
+          }
+        }
+      }
+    },
+    "Repeat Last Capture": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重复上次截图"
+          }
+        }
+      }
+    },
+    "GitHub": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub"
+          }
+        }
+      }
+    },
+    "Website": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "官方网站"
+          }
+        }
+      }
+    },
+    "Email": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "电子邮件"
+          }
+        }
+      }
+    },
+    "Screenshot-%@": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "截图-%@"
+          }
+        }
+      }
+    },
+    "Please analyze this screenshot. Describe what you see and extract any text.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请分析这张截图。描述你看到的内容并提取任何文本。"
+          }
+        }
+      }
+    },
+    "Failed to capture screen": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "捕获屏幕失败"
+          }
+        }
+      }
+    },
+    "No region selected": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未选择区域"
+          }
+        }
+      }
+    },
+    "Peekaboo Inspector": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Peekaboo 检查器"
+          }
+        }
+      }
+    },
+    "Overlay": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "叠加层"
+          }
+        }
+      }
+    },
+    "Checking permissions...": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在检查权限..."
+          }
+        }
+      }
+    },
+    "Hover over an element to see details": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "将鼠标悬停在元素上以查看详情"
+          }
+        }
+      }
+    },
+    "Hover over UI elements to inspect": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "悬停在 UI 元素上以进行检查"
+          }
+        }
+      }
+    },
+    "Monitoring %lld apps": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在监控 %lld 个应用"
+          }
+        }
+      }
+    },
+    "All Elements": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有元素"
+          }
+        }
+      }
+    },
+    "%lld elements": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 个元素"
+          }
+        }
+      }
+    },
+    "Search elements...": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索元素..."
+          }
+        }
+      }
+    },
+    "All": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全部"
+          }
+        }
+      }
+    },
+    "Buttons": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按钮"
+          }
+        }
+      }
+    },
+    "Text Inputs": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "文本输入"
+          }
+        }
+      }
+    },
+    "Links": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "链接"
+          }
+        }
+      }
+    },
+    "Controls": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "控件"
+          }
+        }
+      }
+    },
+    "Containers": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "容器"
+          }
+        }
+      }
+    },
+    "Other": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "其他"
+          }
+        }
+      }
+    },
+    "Actionable Only": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅可操作元素"
+          }
+        }
+      }
+    },
+    "No elements found": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未找到元素"
+          }
+        }
+      }
+    },
+    "Try adjusting your filters or hovering over different applications": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请尝试调整过滤器或将鼠标悬停在不同应用上"
+          }
+        }
+      }
+    },
+    "Identification": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "标识信息"
+          }
+        }
+      }
+    },
+    "Role": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "角色"
+          }
+        }
+      }
+    },
+    "Role Description": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "角色描述"
+          }
+        }
+      }
+    },
+    "Identifier": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "标识符"
+          }
+        }
+      }
+    },
+    "Class": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "类"
+          }
+        }
+      }
+    },
+    "App Bundle": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "应用包名"
+          }
+        }
+      }
+    },
+    "Content": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "内容"
+          }
+        }
+      }
+    },
+    "Title": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "标题"
+          }
+        }
+      }
+    },
+    "Label": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "标签"
+          }
+        }
+      }
+    },
+    "Value": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "数值/文本"
+          }
+        }
+      }
+    },
+    "Help": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "帮助"
+          }
+        }
+      }
+    },
+    "Selected Text": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选中文本"
+          }
+        }
+      }
+    },
+    "Character Count": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "字符数"
+          }
+        }
+      }
+    },
+    "Properties": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "属性"
+          }
+        }
+      }
+    },
+    "Enabled": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已启用"
+          }
+        }
+      }
+    },
+    "Focused": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已获焦点"
+          }
+        }
+      }
+    },
+    "Actionable": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可操作"
+          }
+        }
+      }
+    },
+    "Frame": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "框架"
+          }
+        }
+      }
+    },
+    "Position": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "位置"
+          }
+        }
+      }
+    },
+    "Size": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "尺寸"
+          }
+        }
+      }
+    },
+    "Hierarchy": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "层级结构"
+          }
+        }
+      }
+    },
+    "%lld child elements": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 个子元素"
+          }
+        }
+      }
+    },
+    "Actions": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "操作"
+          }
+        }
+      }
+    },
+    "Copy ID": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "复制 ID"
+          }
+        }
+      }
+    },
+    "Copy Info": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "复制信息"
+          }
+        }
+      }
+    },
+    "Simulate Click": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "模拟点击"
+          }
+        }
+      }
+    },
+    "Accessibility Permission Required": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "需要辅助功能权限"
+          }
+        }
+      }
+    },
+    "Peekaboo Inspector needs accessibility permissions to detect UI elements.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Peekaboo 检查器需要辅助功能权限来探测 UI 元素。"
+          }
+        }
+      }
+    },
+    "Open System Settings": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开系统设置"
+          }
+        }
+      }
+    },
+    "Checking for permission...": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在检查权限..."
+          }
+        }
+      }
+    },
+    "After granting permission, the app will automatically detect it.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "授予权限后，应用将自动识别。"
+          }
+        }
+      }
+    },
+    "Target Applications": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标应用"
+          }
+        }
+      }
+    },
+    "Detail Level": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "详情级别"
+          }
+        }
+      }
+    },
+    "Essential (Buttons & Inputs)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "基础 (按钮和输入)"
+          }
+        }
+      }
+    },
+    "Moderate (Include Lists & Tables)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "中等 (包含列表和表格)"
+          }
+        }
+      }
+    },
+    "All (Show Everything)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全部 (显示所有)"
+          }
+        }
+      }
+    },
+    "All Applications": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有应用"
+          }
+        }
+      }
+    },
+    "Inspecting single application": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在检查单个应用"
+          }
+        }
+      }
+    },
+    "Inspecting all running applications": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在检查所有运行中的应用"
+          }
+        }
+      }
+    },
+    "Animation Speed": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "动画速度"
+          }
+        }
+      }
+    },
+    "Keyboard Theme": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "键盘主题"
+          }
+        }
+      }
+    },
+    "Screenshot Flash": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "截图闪烁"
+          }
+        }
+      }
+    },
+    "Click Animation": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点击动画"
+          }
+        }
+      }
+    },
+    "Type Animation": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "输入动画"
+          }
+        }
+      }
+    },
+    "Scroll Animation": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "滚动动画"
+          }
+        }
+      }
+    },
+    "Mouse Trail": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "鼠标轨迹"
+          }
+        }
+      }
+    },
+    "Swipe Path": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "滑动手势路径"
+          }
+        }
+      }
+    },
+    "Hotkey Overlay": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "热键叠加显示"
+          }
+        }
+      }
+    },
+    "App Lifecycle": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "应用生命周期"
+          }
+        }
+      }
+    },
+    "Window Operations": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "窗口操作"
+          }
+        }
+      }
+    },
+    "Menu Navigation": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "菜单导航"
+          }
+        }
+      }
+    },
+    "Dialog Interaction": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "对话框交互"
+          }
+        }
+      }
+    },
+    "Space Transitions": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "桌面空间切换"
+          }
+        }
+      }
+    },
+    "Watch Capture HUD": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "观察捕获指示器"
+          }
+        }
+      }
+    },
+    "Ghost Animation": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "幽灵动画"
+          }
+        }
+      }
+    },
+    "Shows every 10th screenshot": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每 10 次截图显示一次"
+          }
+        }
+      }
+    },
+    "Pulse indicator for `peekaboo watch` sessions": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "`peekaboo watch` 会话的脉冲指示器"
+          }
+        }
+      }
     }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }

@@ -185,21 +185,22 @@ final class ScreenshotCoordinator {
     /// Dismiss annotation window
     func dismissAnnotationWindow() {
         self.annotationWindowController?.dismiss()
+        // Delay clearing the reference to allow window cleanup to complete
+        let controller = self.annotationWindowController
         self.annotationWindowController = nil
+        DispatchQueue.main.async {
+            _ = controller?.description
+        }
     }
 
     /// Complete the workflow
     func completeCapture() {
         self.logger.info("Capture workflow completed")
-        self.state = .done
-
-        // Reset after a brief delay
-        Task {
-            try? await Task.sleep(for: .milliseconds(100))
-            await MainActor.run {
-                self.state = .idle
-            }
-        }
+        // Reset state directly to idle - no delay needed
+        // Using Task with delay caused issues in Release builds where
+        // the state could get stuck in .done, preventing subsequent captures
+        self.state = .idle
+        self.capturedImage = nil
     }
 
     // MARK: - Output Actions
@@ -231,7 +232,7 @@ final class ScreenshotCoordinator {
 
         let savePanel = NSSavePanel()
         savePanel.allowedContentTypes = [.png, .jpeg]
-        savePanel.nameFieldStringValue = "Screenshot-\(Self.timestampString())"
+        savePanel.nameFieldStringValue = String(localized: "Screenshot-\(Self.timestampString())")
 
         if let location = self.settings?.screenshotDefaultSaveLocation {
             savePanel.directoryURL = URL(fileURLWithPath: (location as NSString).expandingTildeInPath)
@@ -284,7 +285,7 @@ final class ScreenshotCoordinator {
                 let service = PeekabooAIService()
                 let result = try await service.analyzeImage(
                     imageData: jpegData,
-                    question: "Please analyze this screenshot. Describe what you see and extract any text."
+                    question: String(localized: "Please analyze this screenshot. Describe what you see and extract any text.")
                 )
 
                 self.logger.info("AI analysis successful")
@@ -493,9 +494,9 @@ enum ScreenshotError: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
         case .captureFailure:
-            return "Failed to capture screen"
+            return String(localized: "Failed to capture screen")
         case .noSelection:
-            return "No region selected"
+            return String(localized: "No region selected")
         }
     }
 }

@@ -36,11 +36,11 @@ struct AboutSettingsView: View {
             }
 
             VStack(spacing: 2) {
-                Text("Peekaboo")
+                Text(String(localized: "Peekaboo"))
                     .font(.title3).bold()
-                Text("Version \(self.versionString)")
+                Text(String(localized: "Version \(self.versionString)"))
                     .foregroundStyle(.secondary)
-                Text("Menu bar companion for Peekaboo CLI permissions + automation.")
+                Text(String(localized: "Menu bar companion for Peekaboo CLI permissions + automation."))
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -50,10 +50,10 @@ struct AboutSettingsView: View {
             VStack(alignment: .center, spacing: 6) {
                 AboutLinkRow(
                     icon: "chevron.left.slash.chevron.right",
-                    title: "GitHub",
+                    title: String(localized: "GitHub"),
                     url: "https://github.com/steipete/Peekaboo")
-                AboutLinkRow(icon: "globe", title: "Website", url: "https://steipete.me")
-                AboutLinkRow(icon: "envelope", title: "Email", url: "mailto:peter@steipete.me")
+                AboutLinkRow(icon: "globe", title: String(localized: "Website"), url: "https://steipete.me")
+                AboutLinkRow(icon: "envelope", title: String(localized: "Email"), url: "mailto:peter@steipete.me")
             }
             .padding(.top, 8)
             .frame(maxWidth: .infinity)
@@ -63,17 +63,17 @@ struct AboutSettingsView: View {
 
             if self.updater.isAvailable {
                 VStack(spacing: 10) {
-                    Toggle("Check for updates automatically", isOn: self.$autoUpdateEnabled)
+                    Toggle(String(localized: "Check for updates automatically"), isOn: self.$autoUpdateEnabled)
                         .toggleStyle(.checkbox)
                         .frame(maxWidth: .infinity, alignment: .center)
-                    Button("Check for Updates…") { self.updater.checkForUpdates(nil) }
+                    Button(String(localized: "Check for Updates…")) { self.updater.checkForUpdates(nil) }
                 }
             } else {
-                Text("Updates unavailable in this build.")
+                Text(String(localized: "Updates unavailable in this build."))
                     .foregroundStyle(.secondary)
             }
 
-            Text("© 2025 Peter Steinberger. MIT License.")
+            Text(String(localized: "© 2025 Peter Steinberger. MIT License."))
                 .font(.footnote)
                 .foregroundStyle(.secondary)
                 .padding(.top, 4)

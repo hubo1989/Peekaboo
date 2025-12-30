@@ -69,10 +69,21 @@ final class SelectionWindow {
             self.eventMonitor = nil
         }
 
-        for window in self.windows {
+        // Close windows properly to avoid AppKit display cycle crashes
+        // Keep strong reference until after the next run loop iteration
+        let windowsToClose = self.windows
+        self.windows.removeAll()
+
+        for window in windowsToClose {
+            window.contentView = nil  // Release SwiftUI hosting view first
             window.orderOut(nil)
         }
-        self.windows.removeAll()
+
+        // Allow AppKit to complete any pending display cycle operations
+        DispatchQueue.main.async {
+            // Windows will be released after this block
+            _ = windowsToClose.count
+        }
     }
 
     private func createOverlayWindow(for screen: NSScreen) -> NSWindow {
